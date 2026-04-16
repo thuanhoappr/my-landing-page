@@ -1,21 +1,25 @@
 const ITEMS = [
-  "Bạn bận rộn nên đi tập không đều, lên sân thường đánh theo cảm giác.",
-  "Mỗi buổi tập học quá nhiều thứ cùng lúc, dễ rơi vào tình trạng rối chiến thuật.",
-  "Đánh đôi nhưng chưa rõ vai trò của mình trong từng pha bóng.",
-  "Serve và return chưa có chủ đích cho đánh đôi, dễ mất nhịp ngay từ đầu rally.",
-  "Lên lưới sai thời điểm khiến mất sức và để hở sân.",
-  "NVZ và dink nghe phức tạp nên ngại tập, trong khi chỉ cần đủ dùng là đã khác hẳn.",
-  "Học online và tập trực tiếp chưa nối liền, gặp Coach vẫn mất thời gian làm quen.",
+  "Bạn bận quá, lịch tập cứ chập chờn — lên sân là kiểu “đánh cho đỡ cứng người”, chứ chưa kịp sửa gì.",
+  "Buổi tập hay biến thành “hôm nay thử hết mọi thứ”: drop, drive, lob… xong về nhà vẫn không biết mình cần nhất cái nào cho đôi.",
+  "Đánh đôi mà cứ cảm giác mình đang đánh một mình: không rõ lúc nào mình cover, lúc nào nhường cho bạn.",
+  "Serve và return cứ an toàn quá — không sai, nhưng cũng chẳng tạo được áp lực; rally mở ra là thế trận đã nghiêng.",
+  "Lên lưới kiểu “thấy người ta lên mình lên” — hết sức mà điểm không tới, còn dễ lộ sân.",
+  "Nghe NVZ, dink… tưởng khó, nên né. Trong khi thật ra chỉ cần đủ để bóng qua lưới an toàn, trận đã khác hẳn.",
+  "Học online một kiểu, ra sân Coach dạy một kiểu — mất mấy chục phút mới “khớp nhịp”, uổng buổi tập.",
 ];
 
 export function ProblemInsightSection() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">Điểm đau & góc nhìn</h2>
+        <h2 className="text-2xl font-bold md:text-3xl">
+          Có quen không? Những “hạt cát” làm bạn khó chịu trên sân đôi
+        </h2>
         <p className="mt-3 text-slate-300">
-          Bạn không cần thêm một khóa lý thuyết dài dòng. Bạn cần một lộ trình
-          gọn, ra sân là áp dụng được ngay cho đánh đôi.
+          Mình không bán cho bạn một đống thuật ngữ. Mình chỉ muốn bạn đỡ cảm
+          giác “mình đánh được nhưng sao cứ thua kiểu ngớ ngẩn” — vì đánh đôi,
+          thua thường đến từ nhịp và vị trí, không phải từ một cú hoành tráng
+          nào cả.
         </p>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           {ITEMS.map((item) => (

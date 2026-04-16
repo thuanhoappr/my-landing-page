@@ -1,18 +1,18 @@
 const TESTIMONIALS = [
   {
-    name: "Học viên A (minh họa)",
+    name: "Bạn Lan (minh họa)",
     quote:
-      "Trước đây mình lên sân không biết bắt đầu từ đâu. Sau hai tuần đã biết giữ đội hình và tự tin hơn hẳn.",
+      "Trước giờ cứ sợ đánh đôi vì không biết mình đứng đâu cho đúng. Giờ xuống sân kiểu có bản đồ trong đầu, đỡ ngượng hẳn.",
   },
   {
-    name: "Học viên B (minh họa)",
+    name: "Anh Tuấn (minh họa)",
     quote:
-      "Checklist trước buổi tập với Coach rất hữu ích, tiết kiệm đáng kể thời gian làm quen.",
+      "Checklist trước buổi với Coach là thứ mình không ngờ tới — không còn mất nửa tiếng ‘làm quen’ nữa, nhảy vào rally luôn.",
   },
   {
-    name: "Học viên C (minh họa)",
+    name: "Cặp Minh — Hải (minh họa)",
     quote:
-      "Module phối hợp hai người giúp đội mình giao tiếp tốt hơn, giảm lỗi và giữ nhịp trận đấu ổn định.",
+      "Hai đứa hay cãi nhau vì ai cũng tưởng mình cover. Sau phần phối hợp, đánh đôi đỡ ồn mà… điểm lại nhiều hơn.",
   },
 ];
 
@@ -21,8 +21,12 @@ export function TestimonialsSection() {
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-2xl font-bold md:text-3xl">
-          Cảm nhận học viên (minh họa)
+          Người chơi nói gì (minh họa — để bạn hình dung vibe lớp)
         </h2>
+        <p className="mt-2 text-sm text-slate-400">
+          Đây là giọng điệu thật trên sân: ngắn, thẳng, không phải review kiểu
+          marketing sáo rỗng.
+        </p>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {TESTIMONIALS.map((item) => (
             <article

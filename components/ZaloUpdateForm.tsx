@@ -23,16 +23,16 @@ export function ZaloUpdateForm() {
       });
       const data = (await response.json()) as { ok: boolean; message?: string };
       if (!response.ok || !data.ok) {
-        setError(data.message ?? "Không cập nhật được Zalo. Vui lòng thử lại.");
+        setError(data.message ?? "Chưa cập nhật được Zalo. Bạn thử lại giúp mình nhé.");
         return;
       }
       setSuccess(
-        "Cập nhật Zalo thành công. Bạn sẽ nhận tài liệu trong thời gian sớm nhất.",
+        "Xong rồi — mình đã ghi nhận Zalo. Tài liệu sẽ tới tay bạn sớm thôi.",
       );
       setEmail("");
       setZalo("");
     } catch {
-      setError("Không kết nối được máy chủ. Vui lòng thử lại.");
+      setError("Lỗi kết nối. Kiểm tra mạng rồi thử lại giúp mình.");
     } finally {
       setIsSubmitting(false);
     }
@@ -42,7 +42,7 @@ export function ZaloUpdateForm() {
     <form onSubmit={handleSubmit} className="space-y-3">
       <label className="block">
         <span className="mb-1 block text-sm text-slate-200">
-          Email đã đăng ký *
+          Email bạn vừa đăng ký *
         </span>
         <input
           type="email"
@@ -53,13 +53,13 @@ export function ZaloUpdateForm() {
         />
       </label>
       <label className="block">
-        <span className="mb-1 block text-sm text-slate-200">Zalo *</span>
+        <span className="mb-1 block text-sm text-slate-200">Zalo của bạn *</span>
         <input
           type="text"
           value={zalo}
           onChange={(event) => setZalo(event.target.value)}
           className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
-          placeholder="Số điện thoại hoặc Zalo ID"
+          placeholder="Số điện thoại hoặc Zalo ID là được"
           required
         />
       </label>
@@ -72,7 +72,7 @@ export function ZaloUpdateForm() {
         disabled={isSubmitting}
         className="rounded-lg bg-emerald-400 px-4 py-2 font-semibold text-slate-900 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
       >
-        {isSubmitting ? "Đang cập nhật…" : "Cập nhật Zalo"}
+        {isSubmitting ? "Đang gửi…" : "Gửi Zalo cho mình"}
       </button>
     </form>
   );

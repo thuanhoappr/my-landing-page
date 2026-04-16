@@ -13,30 +13,33 @@ export default function ThankYouPage() {
           Đăng ký thành công
         </p>
         <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-          Cảm ơn bạn đã đăng ký
-          <span className="block text-emerald-300">
+          Cảm ơn bạn — chỗ này là phần thưởng cho quyết định “tôi muốn chơi đôi
+          cho ra hồn”
+          <span className="mt-2 block text-emerald-300">
             Pickleball Coach-Ready
           </span>
         </h1>
         <p className="mt-4 text-slate-300">
-          Quà tặng hôm nay: bộ outline bốn tuần và checklist trước buổi ra sân
-          với Coach để vào thực hành nhanh hơn.
+          Mình để sẵn cho bạn bộ outline bốn tuần và checklist trước buổi ra sân
+          với Coach — không phải để đọc cho vui, mà để bạn mở ra là biết hôm
+          nay mình cần sửa đúng một hai thứ gì.
         </p>
 
         <section className="mt-8 space-y-6">
-          <h2 className="text-xl font-semibold">Bước tiếp theo</h2>
+          <h2 className="text-xl font-semibold">Ba bước nhỏ — làm xong là ổn</h2>
 
           <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
             <p className="mb-3 text-sm text-slate-300">
-              1) Điền Zalo để nhận tài liệu và cập nhật nhanh cho đội ngũ hỗ
-              trợ.
+              1) Cho mình Zalo — để gửi tài liệu và khớp đúng người với email bạn
+              vừa đăng ký.
             </p>
             <ZaloUpdateForm />
           </div>
 
           <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
             <p className="mb-3 text-sm text-slate-300">
-              2) Vào nhóm để nhận thông báo lịch học và tài liệu.
+              2) Vào nhóm — chỗ nhận lịch, nhắc buổi tập, và đôi khi là… một
+              clip ngắn mình thấy đội hay mắc lỗi gì.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -58,7 +61,8 @@ export default function ThankYouPage() {
 
           <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
             <p className="mb-3 text-sm text-slate-300">
-              3) Tải outline và checklist để bắt đầu ngay.
+              3) Tải outline + checklist — rồi chọn một buổi sắp tới để thử đúng
+              checklist đó trên sân.
             </p>
             <Link
               href={OUTLINE_URL}

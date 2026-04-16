@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Pickleball Coach-Ready",
-  description: "Học online để ra sân tập hiệu quả",
+  description:
+    "Học online gọn cho người bận — ra sân đánh đôi có nhịp, có checklist; gặp Coach là vào bài luôn.",
 };
 
 export default function RootLayout({

@@ -1,43 +1,43 @@
 const FAQS = [
   {
-    q: "Khóa học này có phù hợp người mới không?",
-    a: "Có. Nội dung được thiết kế cho người mới và người cần hệ thống lại cách đánh đôi.",
+    q: "Mình mới tập — có bị “tụt lại” so với người quen sân không?",
+    a: "Không sao cả. Mình thiết kế để bạn vào được nhịp đôi sớm: ít chuyện bay bổng, nhiều chuyện “hôm nay ra sân làm đúng 2–3 việc”.",
   },
   {
-    q: "Mỗi ngày cần bao nhiêu thời gian học?",
-    a: "Khoảng 15–20 phút mỗi ngày là đủ để theo kịp lộ trình bốn tuần.",
+    q: "Mỗi ngày chỉ có chút xíu thời gian — có theo nổi không?",
+    a: "Được. Mình bóp theo kiểu người bận: khoảng 15–20 phút mỗi ngày, nhưng mỗi tuần phải thấy chỗ khác khi đánh đôi.",
   },
   {
-    q: "Học online rồi có cần Coach trực tiếp không?",
-    a: "Nên có. Khóa học giúp bạn vào buổi tập trực tiếp với Coach tập trung và hiệu quả hơn.",
+    q: "Học online vậy… rồi có cần Coach trực tiếp không?",
+    a: "Nên có — nhưng kiểu khác: bạn mang câu hỏi và checklist lên, Coach không còn phải mất giờ kể lại từ đầu. Buổi đó ăn tiền hơn cho bạn.",
   },
   {
-    q: "Nội dung tập trung đánh đơn hay đánh đôi?",
-    a: "Tập trung vào Pickleball đánh đôi cho người bận rộn.",
+    q: "Khóa này nặng đánh đơn hay đánh đôi?",
+    a: "Đôi. Nếu bạn chỉ muốn solo highlight reel thì mình vẫn vui cho bạn — nhưng đó không phải món chính ở đây.",
   },
   {
-    q: "Tôi đã biết đánh cơ bản, có nên học không?",
-    a: "Nên. Khóa học giúp hệ thống hóa và tối ưu phối hợp hai người.",
+    q: "Mình đánh được rồi — học thêm có “dư” không?",
+    a: "Nếu bạn vẫn có cảm giác “đánh được mà sao cứ thua kiểu ngớ ngẩn” thì không dư. Mình giúp bạn hệ thống lại phần hay gây điểm / gây lỗi trong đôi.",
   },
   {
-    q: "Có bài tập thực hành không?",
-    a: "Có checklist và bài tập tối giản để bạn áp dụng ngay khi ra sân.",
+    q: "Có đồ để tập ở nhà không, hay toàn lý thuyết?",
+    a: "Có checklist và bài tập tối giản — thứ bạn mang ra sân là được, không cần sân nhà mini cầu kỳ.",
   },
   {
-    q: "Tôi có thể xem lại nội dung nhiều lần không?",
-    a: "Có. Bạn có thể ôn lại để củng cố nền tảng trước mỗi buổi tập.",
+    q: "Mình hay quên — có xem lại được không?",
+    a: "Có. Bạn cứ xem lại phần nào “đang kẹt” trước khi xuống sân; pickleball nhớ bằng lặp lại, không nhớ bằng nghe một lần.",
   },
   {
-    q: "Khi nào nên lên lưới trong đánh đôi?",
-    a: "Bạn sẽ học quy tắc lên lưới an toàn theo từng tình huống serve và return cụ thể.",
+    q: "Lên lưới kiểu gì cho khỏi… nổ tim?",
+    a: "Mình dạy theo tình huống: khi nào lên để ăn điểm, khi nào ở lại cho chắc — tránh kiểu “thấy người ta lên mình lên”.",
   },
   {
-    q: "NVZ và dink có khó không?",
-    a: "Không cần quá phức tạp; mục tiêu là đủ dùng để giảm lỗi và giữ nhịp rally.",
+    q: "NVZ / dink có phải kiểu nghệ sĩ không?",
+    a: "Không cần đẹp như clip TikTok. Mình chỉ cần bạn dink đủ an toàn, giữ rally, rồi chờ thời điểm dứt điểm — thực dụng là chính.",
   },
   {
-    q: "Sau khi đăng ký tôi nhận được gì?",
-    a: "Bạn được chuyển sang trang cảm ơn để nhận hướng dẫn, liên kết nhóm và quà tặng.",
+    q: "Đăng ký xong thì sao?",
+    a: "Bạn sang trang cảm ơn để nhận quà, vào nhóm nếu cần, và bổ sung Zalo để mình gửi tài liệu cho kịp.",
   },
 ];
 
@@ -45,7 +45,9 @@ export function FAQSection() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">Câu hỏi thường gặp</h2>
+        <h2 className="text-2xl font-bold md:text-3xl">
+          Hỏi nhanh — trả lời thẳng (kiểu nói chuyện ở hàng nước sau sân)
+        </h2>
         <div className="mt-6 space-y-3">
           {FAQS.map((faq) => (
             <details

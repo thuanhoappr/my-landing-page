@@ -15,11 +15,11 @@ type LeadFormData = {
 };
 
 const GOAL_OPTIONS = [
-  "Bắt đầu từ con số 0",
-  "Cải thiện kỹ năng đánh đôi căn bản",
-  "Biết cách lên lưới và giữ đội hình",
-  "Phối hợp với bạn đánh tốt hơn",
-  "Chuẩn bị đi tập với Coach hiệu quả",
+  "Mình mới cầm vợt — muốn vào sân mà không ngại ngùng",
+  "Đánh được rồi nhưng đánh đôi vẫn rối, muốn gọn lại từng bước",
+  "Muốn lên lưới đúng lúc, đỡ hụt hơi và đỡ đứng sai chỗ",
+  "Muốn ăn ý với bạn đánh — ít la hét, nhiều điểm hơn",
+  "Sắp tập với Coach — muốn buổi đó vào game luôn, không mất nửa giờ làm quen",
 ];
 
 export function HeroWithLeadForm() {
@@ -39,11 +39,11 @@ export function HeroWithLeadForm() {
 
   const headlineOptions = useMemo(
     () => [
-      "Đánh đôi Pickleball không còn rối: học online, ra sân tập trung vào điều quan trọng",
-      "Người bận rộn vẫn tiến bộ ở đánh đôi: lộ trình online trước, Coach tối ưu sau",
-      "Ra sân có kế hoạch rõ ràng: học đúng thứ cần cho đánh đôi",
-      "Không cần tập nhiều, chỉ cần tập đúng: Coach-Ready cho người ít thời gian",
-      "Từ mơ hồ đến tự tin đánh đôi: chuẩn bị online để vào sân thực hành nhanh",
+      "Đánh đôi không còn kiểu “đánh cho vui rồi thua vì rối” — bạn biết mình đang làm gì trên sân.",
+      "Bận nhưng vẫn tiến bộ: học online gọn, ra sân là có việc để làm, không lãng phí buổi tập.",
+      "Không cần tập nhiều — chỉ cần tập đúng thứ khiến điểm số đôi của bạn đổi khác.",
+      "Ra sân mà trong đầu có sơ đồ: ai đứng đâu, lúc nào lên lưới, lúc nào giữ nhịp.",
+      "Từ “mình đánh được” sang “đội mình chơi có chủ đích” — đúng tinh thần pickleball đôi.",
     ],
     [],
   );
@@ -91,19 +91,23 @@ export function HeroWithLeadForm() {
             Pickleball Coach-Ready
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-            Pickleball Coach-Ready: Học online để ra sân tập hiệu quả
+            Pickleball Coach-Ready: học online để ra sân đánh đôi “có nội dung”
           </h1>
           <p className="text-lg text-slate-300">
-            Định vị: Pickleball đánh đôi cho người bận rộn; học online để ra sân
-            tập trực tiếp cùng Coach hiệu quả hơn.
+            Dành cho người bận rộn nhưng không muốn đứng trên sân kiểu mò mẫm.
+            Bạn học trước phần nền và cách đọc trận đôi; khi gặp Coach, ta bỏ
+            thời gian nói suông — nhảy thẳng vào bóng, vào vị trí, vào tình
+            huống.
           </p>
           <p className="rounded-lg border border-emerald-400/30 bg-emerald-400/10 p-3 text-sm text-emerald-200">
-            Học online trước để buổi ra sân với Coach đi thẳng vào thực hành.
+            Một câu thôi: học online trước để buổi ra sân với Coach không còn là
+            buổi “lý thuyết kéo dài”, mà là buổi bạn đập bóng có mục đích.
           </p>
 
           <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
             <p className="mb-3 text-sm font-semibold text-slate-200">
-              Năm phương án tiêu đề chính (headline)
+              Nếu bạn đang viết quảng cáo / bài đăng, đây là vài câu mở “dính”
+              người chơi
             </p>
             <ul className="list-disc space-y-2 pl-5 text-sm text-slate-300">
               {headlineOptions.map((headline) => (
@@ -111,16 +115,18 @@ export function HeroWithLeadForm() {
               ))}
             </ul>
             <p className="mt-4 text-sm font-semibold text-slate-200">
-              Hai phương án tiêu đề phụ (sub-headline)
+              Hai hướng sub-headline gợi ý
             </p>
             <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-slate-300">
               <li>
-                Dành cho người mới và người bận rộn: học 15–20 phút mỗi ngày, ra
-                sân có checklist rõ ràng.
+                Cho người mới lẫn người quay lại sau vài tháng bận: mỗi ngày
+                15–20 phút, ra sân có checklist — không còn cảm giác “hôm nay tập
+                cái gì ta?”.
               </li>
               <li>
-                Tập trung vào đánh đôi thực chiến: serve, return, lên lưới, phối
-                hợp hai người và chiến thuật tối giản.
+                Không xây “bảo tàng kỹ thuật”. Chỉ lấy đúng thứ hay xảy ra trong
+                đôi: serve, return, lên lưới, NVZ, nói chuyện với đồng đội, rồi
+                chọn cú đánh cho điểm — gọn, thực dụng, đánh được ngay.
               </li>
             </ul>
           </div>
@@ -130,9 +136,13 @@ export function HeroWithLeadForm() {
           onSubmit={handleSubmit}
           className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl"
         >
-          <h2 className="mb-4 text-xl font-semibold">
-            Đăng ký nhận lộ trình và quà tặng
+          <h2 className="mb-2 text-xl font-semibold">
+            Để lại thông tin — mình gửi bạn lộ trình và phần quà kèm sân
           </h2>
+          <p className="mb-4 text-sm text-slate-400">
+            Không spam. Chỉ những thứ giúp bạn vào sân đỡ ngượng hơn và đánh đôi
+            có nhịp hơn.
+          </p>
           <div className="space-y-4">
             <Input
               label="Họ và tên *"
@@ -155,7 +165,7 @@ export function HeroWithLeadForm() {
 
             <label className="block">
               <span className="mb-1 block text-sm text-slate-200">
-                Mục tiêu của bạn *
+                Bạn đang muốn điều gì nhất lúc này? *
               </span>
               <select
                 value={form.goal}
@@ -175,7 +185,7 @@ export function HeroWithLeadForm() {
 
             <label className="block">
               <span className="mb-1 block text-sm text-slate-200">
-                Ghi chú (tùy chọn)
+                Ghi chú thêm (tùy chọn)
               </span>
               <textarea
                 value={form.note}
@@ -184,7 +194,7 @@ export function HeroWithLeadForm() {
                 }
                 rows={3}
                 className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
-                placeholder="Mục tiêu cụ thể hoặc khó khăn hiện tại của bạn…"
+                placeholder="Ví dụ: hay pop-up lỗi, hay bị kẹt ở NVZ, hay không hiểu khi nào nên ở lại sau lưới…"
               />
             </label>
 
@@ -219,7 +229,7 @@ export function HeroWithLeadForm() {
               disabled={isSubmitting}
               className="w-full rounded-lg bg-emerald-400 px-4 py-2 font-semibold text-slate-900 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
             >
-              {isSubmitting ? "Đang gửi…" : "Đăng ký ngay"}
+              {isSubmitting ? "Đang gửi…" : "Gửi cho mình — mình lo phần còn lại"}
             </button>
           </div>
         </form>
