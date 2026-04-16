@@ -1,19 +1,19 @@
 const WEEKS = [
   {
-    title: "Tuan 1 - Dung nen",
-    desc: "On khung danh doi can ban, vi tri dung, quy tac di chuyen it ton suc.",
+    title: "Tuần 1 — Dựng nền",
+    desc: "Ôn khung đánh đôi căn bản, vị trí đúng, quy tắc di chuyển tiết kiệm sức.",
   },
   {
-    title: "Tuan 2 - Khai mo rally",
-    desc: "Tap Serve/Return cho danh doi de vao rally co loi the som.",
+    title: "Tuần 2 — Mở rally",
+    desc: "Serve và return cho đánh đôi để vào rally có lợi thế sớm.",
   },
   {
-    title: "Tuan 3 - Len luoi & NVZ",
-    desc: "Chon thoi diem len luoi, giu doi hinh va dung Dink/NVZ du dung.",
+    title: "Tuần 3 — Lên lưới & NVZ",
+    desc: "Chọn thời điểm lên lưới, giữ đội hình và dùng dink/NVZ đủ dùng.",
   },
   {
-    title: "Tuan 4 - Phoi hop & Chien thuat",
-    desc: "Giao tiep 2 nguoi, phan vai va shot selection don gian de ap dung ngay.",
+    title: "Tuần 4 — Phối hợp & chiến thuật",
+    desc: "Giao tiếp hai người, phân vai và chọn cú đánh tối giản, áp dụng ngay.",
   },
 ];
 
@@ -22,7 +22,7 @@ export function Roadmap4Weeks() {
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-2xl font-bold md:text-3xl">
-          Lo trinh 4 tuan cho nguoi ban ron
+          Lộ trình bốn tuần cho người bận rộn
         </h2>
         <div className="mt-6 space-y-3">
           {WEEKS.map((week) => (

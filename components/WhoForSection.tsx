@@ -4,24 +4,29 @@ export function WhoForSection() {
       <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2">
         <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
           <h3 className="text-xl font-semibold text-emerald-200">
-            Who it is for
+            Dành cho ai
           </h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-100">
-            <li>Nguoi moi bat dau Pickleball danh doi.</li>
-            <li>Nguoi ban ron, moi ngay chi co 15-20 phut hoc.</li>
-            <li>Da danh nhung chua co he thong va de roi doi hinh.</li>
-            <li>Muon tap truoc online de buoi offline voi Coach hieu qua hon.</li>
+            <li>Người mới bắt đầu Pickleball đánh đôi.</li>
+            <li>Người bận rộn, mỗi ngày chỉ có khoảng 15–20 phút để học.</li>
+            <li>Đã đánh nhưng chưa có hệ thống, dễ rối đội hình.</li>
+            <li>
+              Muốn học online trước để buổi tập trực tiếp với Coach hiệu quả
+              hơn.
+            </li>
           </ul>
         </div>
         <div className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-5">
           <h3 className="text-xl font-semibold text-rose-200">
-            Who it is not for
+            Không phù hợp nếu
           </h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-100">
-            <li>Nguoi muon noi dung thi dau nang cao chuyen nghiep ngay lap tuc.</li>
-            <li>Nguoi khong co ke hoach ra san thuc hanh.</li>
-            <li>Nguoi tim khoa hoc chi ly thuyet, khong can checklist ung dung.</li>
-            <li>Nguoi khong muon phoi hop danh doi ma chi danh don.</li>
+            <li>
+              Mong muốn nội dung thi đấu nâng cao, chuyên nghiệp ngay lập tức.
+            </li>
+            <li>Không có kế hoạch ra sân thực hành.</li>
+            <li>Chỉ cần lý thuần túy, không cần checklist ứng dụng.</li>
+            <li>Không muốn phối hợp đánh đôi mà chỉ đánh đơn.</li>
           </ul>
         </div>
       </div>

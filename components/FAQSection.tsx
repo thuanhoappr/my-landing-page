@@ -1,43 +1,43 @@
 const FAQS = [
   {
-    q: "Khoa hoc nay co phu hop nguoi moi khong?",
-    a: "Co. Noi dung duoc thiet ke cho nguoi moi va nguoi can he thong lai cach danh doi.",
+    q: "Khóa học này có phù hợp người mới không?",
+    a: "Có. Nội dung được thiết kế cho người mới và người cần hệ thống lại cách đánh đôi.",
   },
   {
-    q: "Moi ngay can bao nhieu thoi gian hoc?",
-    a: "Khoang 15-20 phut/ngay la du de theo kip lo trinh 4 tuan.",
+    q: "Mỗi ngày cần bao nhiêu thời gian học?",
+    a: "Khoảng 15–20 phút mỗi ngày là đủ để theo kịp lộ trình bốn tuần.",
   },
   {
-    q: "Hoc online roi co can Coach offline khong?",
-    a: "Nen co. Khoa hoc giup ban vao buoi offline voi Coach hieu qua va tap trung hon.",
+    q: "Học online rồi có cần Coach trực tiếp không?",
+    a: "Nên có. Khóa học giúp bạn vào buổi tập trực tiếp với Coach tập trung và hiệu quả hơn.",
   },
   {
-    q: "Noi dung tap trung danh don hay danh doi?",
-    a: "Tap trung vao Pickleball danh doi cho nguoi ban ron.",
+    q: "Nội dung tập trung đánh đơn hay đánh đôi?",
+    a: "Tập trung vào Pickleball đánh đôi cho người bận rộn.",
   },
   {
-    q: "Toi da biet danh co ban, co nen hoc?",
-    a: "Nen. Khoa hoc giup he thong hoa va toi uu phoi hop 2 nguoi.",
+    q: "Tôi đã biết đánh cơ bản, có nên học không?",
+    a: "Nên. Khóa học giúp hệ thống hóa và tối ưu phối hợp hai người.",
   },
   {
-    q: "Co bai tap thuc hanh khong?",
-    a: "Co checklist va bai tap toi gian de ban ap dung ngay khi ra san.",
+    q: "Có bài tập thực hành không?",
+    a: "Có checklist và bài tập tối giản để bạn áp dụng ngay khi ra sân.",
   },
   {
-    q: "Toi co the hoc lai video nhieu lan khong?",
-    a: "Co, ban co the hoc lai de cuong co nen tang truoc moi buoi tap.",
+    q: "Tôi có thể xem lại nội dung nhiều lần không?",
+    a: "Có. Bạn có thể ôn lại để củng cố nền tảng trước mỗi buổi tập.",
   },
   {
-    q: "Khi nao nen len luoi trong danh doi?",
-    a: "Ban se hoc quy tac len luoi an toan theo tinh huong Serve/Return cu the.",
+    q: "Khi nào nên lên lưới trong đánh đôi?",
+    a: "Bạn sẽ học quy tắc lên lưới an toàn theo từng tình huống serve và return cụ thể.",
   },
   {
-    q: "NVZ/Dink co kho khong?",
-    a: "Khong can qua phuc tap, muc tieu la du dung de giam loi va giu nhip rally.",
+    q: "NVZ và dink có khó không?",
+    a: "Không cần quá phức tạp; mục tiêu là đủ dùng để giảm lỗi và giữ nhịp rally.",
   },
   {
-    q: "Sau khi dang ky thi nhan gi?",
-    a: "Ban duoc chuyen qua trang cam on de nhan huong dan, link nhom va qua tang.",
+    q: "Sau khi đăng ký tôi nhận được gì?",
+    a: "Bạn được chuyển sang trang cảm ơn để nhận hướng dẫn, liên kết nhóm và quà tặng.",
   },
 ];
 
@@ -45,7 +45,7 @@ export function FAQSection() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">FAQ</h2>
+        <h2 className="text-2xl font-bold md:text-3xl">Câu hỏi thường gặp</h2>
         <div className="mt-6 space-y-3">
           {FAQS.map((faq) => (
             <details

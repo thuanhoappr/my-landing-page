@@ -23,14 +23,16 @@ export function ZaloUpdateForm() {
       });
       const data = (await response.json()) as { ok: boolean; message?: string };
       if (!response.ok || !data.ok) {
-        setError(data.message ?? "Khong cap nhat duoc Zalo.");
+        setError(data.message ?? "Không cập nhật được Zalo. Vui lòng thử lại.");
         return;
       }
-      setSuccess("Cap nhat Zalo thanh cong. Ban se nhan tai lieu som.");
+      setSuccess(
+        "Cập nhật Zalo thành công. Bạn sẽ nhận tài liệu trong thời gian sớm nhất.",
+      );
       setEmail("");
       setZalo("");
     } catch {
-      setError("Khong ket noi duoc may chu. Vui long thu lai.");
+      setError("Không kết nối được máy chủ. Vui lòng thử lại.");
     } finally {
       setIsSubmitting(false);
     }
@@ -39,7 +41,9 @@ export function ZaloUpdateForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
       <label className="block">
-        <span className="mb-1 block text-sm text-slate-200">Email da dang ky *</span>
+        <span className="mb-1 block text-sm text-slate-200">
+          Email đã đăng ký *
+        </span>
         <input
           type="email"
           value={email}
@@ -55,7 +59,7 @@ export function ZaloUpdateForm() {
           value={zalo}
           onChange={(event) => setZalo(event.target.value)}
           className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
-          placeholder="So dien thoai hoac Zalo ID"
+          placeholder="Số điện thoại hoặc Zalo ID"
           required
         />
       </label>
@@ -68,7 +72,7 @@ export function ZaloUpdateForm() {
         disabled={isSubmitting}
         className="rounded-lg bg-emerald-400 px-4 py-2 font-semibold text-slate-900 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
       >
-        {isSubmitting ? "Dang cap nhat..." : "Cap nhat Zalo"}
+        {isSubmitting ? "Đang cập nhật…" : "Cập nhật Zalo"}
       </button>
     </form>
   );

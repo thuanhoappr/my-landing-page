@@ -11,7 +11,10 @@ export async function POST(request: Request) {
     const ip = getClientIp(request);
     if (!rateLimitByIp(ip, "zalo")) {
       return NextResponse.json(
-        { ok: false, message: "Too many requests. Please try again later." },
+        {
+          ok: false,
+          message: "Bạn gửi quá nhiều yêu cầu. Vui lòng thử lại sau ít phút.",
+        },
         { status: 429 },
       );
     }
@@ -31,7 +34,8 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           ok: false,
-          message: "Missing FORMSPREE_ZALO_URL or FORMSPREE_LEAD_URL env.",
+          message:
+            "Máy chủ chưa cấu hình FORMSPREE_ZALO_URL hoặc FORMSPREE_LEAD_URL.",
         },
         { status: 500 },
       );
@@ -51,7 +55,10 @@ export async function POST(request: Request) {
 
     if (!response.ok) {
       return NextResponse.json(
-        { ok: false, message: "Failed to update Zalo." },
+        {
+          ok: false,
+          message: "Không cập nhật được Zalo. Vui lòng thử lại sau.",
+        },
         { status: 502 },
       );
     }
@@ -59,7 +66,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json(
-      { ok: false, message: "Unexpected server error." },
+      { ok: false, message: "Đã xảy ra lỗi máy chủ. Vui lòng thử lại sau." },
       { status: 500 },
     );
   }

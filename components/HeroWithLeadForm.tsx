@@ -15,11 +15,11 @@ type LeadFormData = {
 };
 
 const GOAL_OPTIONS = [
-  "Bat dau tu con so 0",
-  "Cai thien ky nang danh doi can ban",
-  "Biet cach len luoi va giu doi hinh",
-  "Phoi hop voi ban danh tot hon",
-  "Chuan bi di tap voi Coach hieu qua",
+  "Bắt đầu từ con số 0",
+  "Cải thiện kỹ năng đánh đôi căn bản",
+  "Biết cách lên lưới và giữ đội hình",
+  "Phối hợp với bạn đánh tốt hơn",
+  "Chuẩn bị đi tập với Coach hiệu quả",
 ];
 
 export function HeroWithLeadForm() {
@@ -39,11 +39,11 @@ export function HeroWithLeadForm() {
 
   const headlineOptions = useMemo(
     () => [
-      "Danh doi Pickleball khong con roi: hoc online, ra san tap trung vao dieu quan trong",
-      "Nguoi ban ron van danh doi tien bo: lo trinh online truoc, Coach toi uu sau",
-      "Ra san co ke hoach ro rang: hoc dung thu can cho danh doi",
-      "Khong can tap nhieu, chi can tap dung: Coach-Ready cho nguoi it thoi gian",
-      "Tu mo ho den biet danh doi: chuan bi online de vao san thuc hanh nhanh",
+      "Đánh đôi Pickleball không còn rối: học online, ra sân tập trung vào điều quan trọng",
+      "Người bận rộn vẫn tiến bộ ở đánh đôi: lộ trình online trước, Coach tối ưu sau",
+      "Ra sân có kế hoạch rõ ràng: học đúng thứ cần cho đánh đôi",
+      "Không cần tập nhiều, chỉ cần tập đúng: Coach-Ready cho người ít thời gian",
+      "Từ mơ hồ đến tự tin đánh đôi: chuẩn bị online để vào sân thực hành nhanh",
     ],
     [],
   );
@@ -68,13 +68,16 @@ export function HeroWithLeadForm() {
       const data = (await response.json()) as { ok: boolean; message?: string };
 
       if (!response.ok || !data.ok) {
-        setError(data.message ?? "Khong gui duoc thong tin. Vui long thu lai.");
+        setError(
+          data.message ??
+            "Không gửi được thông tin. Vui lòng thử lại trong giây lát.",
+        );
         return;
       }
 
       router.push("/thank-you");
     } catch {
-      setError("Khong ket noi duoc may chu. Vui long thu lai.");
+      setError("Không kết nối được máy chủ. Vui lòng thử lại.");
     } finally {
       setIsSubmitting(false);
     }
@@ -88,19 +91,19 @@ export function HeroWithLeadForm() {
             Pickleball Coach-Ready
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-            Pickleball Coach-Ready: Hoc online de ra san tap hieu qua
+            Pickleball Coach-Ready: Học online để ra sân tập hiệu quả
           </h1>
           <p className="text-lg text-slate-300">
-            Dinh vi: Pickleball danh doi cho nguoi ban ron; hoc online de ra san
-            tap offline voi Coach hieu qua.
+            Định vị: Pickleball đánh đôi cho người bận rộn; học online để ra sân
+            tập trực tiếp cùng Coach hiệu quả hơn.
           </p>
           <p className="rounded-lg border border-emerald-400/30 bg-emerald-400/10 p-3 text-sm text-emerald-200">
-            Hoc online truoc de buoi ra san voi Coach di thang vao thuc hanh.
+            Học online trước để buổi ra sân với Coach đi thẳng vào thực hành.
           </p>
 
           <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
             <p className="mb-3 text-sm font-semibold text-slate-200">
-              5 headline options:
+              Năm phương án tiêu đề chính (headline)
             </p>
             <ul className="list-disc space-y-2 pl-5 text-sm text-slate-300">
               {headlineOptions.map((headline) => (
@@ -108,16 +111,16 @@ export function HeroWithLeadForm() {
               ))}
             </ul>
             <p className="mt-4 text-sm font-semibold text-slate-200">
-              2 subheadline options:
+              Hai phương án tiêu đề phụ (sub-headline)
             </p>
             <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-slate-300">
               <li>
-                Danh cho nguoi moi va nguoi ban ron: hoc 15-20 phut/ngay, vao san
-                co checklist ro rang.
+                Dành cho người mới và người bận rộn: học 15–20 phút mỗi ngày, ra
+                sân có checklist rõ ràng.
               </li>
               <li>
-                Tap trung vao danh doi thuc chien: serve, return, len luoi, phoi
-                hop 2 nguoi va chien thuat toi gian.
+                Tập trung vào đánh đôi thực chiến: serve, return, lên lưới, phối
+                hợp hai người và chiến thuật tối giản.
               </li>
             </ul>
           </div>
@@ -128,11 +131,11 @@ export function HeroWithLeadForm() {
           className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl"
         >
           <h2 className="mb-4 text-xl font-semibold">
-            Dang ky nhan lo trinh + qua tang
+            Đăng ký nhận lộ trình và quà tặng
           </h2>
           <div className="space-y-4">
             <Input
-              label="FullName *"
+              label="Họ và tên *"
               value={form.fullName}
               onChange={(value) => setForm((prev) => ({ ...prev, fullName: value }))}
               required
@@ -145,13 +148,15 @@ export function HeroWithLeadForm() {
               required
             />
             <Input
-              label="Phone (optional)"
+              label="Điện thoại (tùy chọn)"
               value={form.phone}
               onChange={(value) => setForm((prev) => ({ ...prev, phone: value }))}
             />
 
             <label className="block">
-              <span className="mb-1 block text-sm text-slate-200">Goal *</span>
+              <span className="mb-1 block text-sm text-slate-200">
+                Mục tiêu của bạn *
+              </span>
               <select
                 value={form.goal}
                 onChange={(event) =>
@@ -170,7 +175,7 @@ export function HeroWithLeadForm() {
 
             <label className="block">
               <span className="mb-1 block text-sm text-slate-200">
-                Note (optional)
+                Ghi chú (tùy chọn)
               </span>
               <textarea
                 value={form.note}
@@ -179,7 +184,7 @@ export function HeroWithLeadForm() {
                 }
                 rows={3}
                 className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
-                placeholder="Muc tieu cu the hoac kho khan hien tai cua ban..."
+                placeholder="Mục tiêu cụ thể hoặc khó khăn hiện tại của bạn…"
               />
             </label>
 
@@ -192,7 +197,7 @@ export function HeroWithLeadForm() {
                 }
                 className="mt-0.5"
               />
-              Toi dong y nhan huong dan va thong tin tu khoa hoc.
+              Tôi đồng ý nhận hướng dẫn và thông tin từ khóa học.
             </label>
 
             <input
@@ -214,7 +219,7 @@ export function HeroWithLeadForm() {
               disabled={isSubmitting}
               className="w-full rounded-lg bg-emerald-400 px-4 py-2 font-semibold text-slate-900 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
             >
-              {isSubmitting ? "Dang gui..." : "Dang ky ngay"}
+              {isSubmitting ? "Đang gửi…" : "Đăng ký ngay"}
             </button>
           </div>
         </form>

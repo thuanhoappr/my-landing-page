@@ -11,7 +11,10 @@ export async function POST(request: Request) {
     const ip = getClientIp(request);
     if (!rateLimitByIp(ip, "lead")) {
       return NextResponse.json(
-        { ok: false, message: "Too many requests. Please try again later." },
+        {
+          ok: false,
+          message: "Bạn gửi quá nhiều yêu cầu. Vui lòng thử lại sau ít phút.",
+        },
         { status: 429 },
       );
     }
@@ -28,7 +31,11 @@ export async function POST(request: Request) {
     const endpoint = process.env.FORMSPREE_LEAD_URL;
     if (!endpoint) {
       return NextResponse.json(
-        { ok: false, message: "Missing FORMSPREE_LEAD_URL env." },
+        {
+          ok: false,
+          message:
+            "Máy chủ chưa cấu hình FORMSPREE_LEAD_URL. Vui lòng liên hệ quản trị.",
+        },
         { status: 500 },
       );
     }
@@ -47,7 +54,7 @@ export async function POST(request: Request) {
 
     if (!response.ok) {
       return NextResponse.json(
-        { ok: false, message: "Failed to save lead." },
+        { ok: false, message: "Không lưu được thông tin. Vui lòng thử lại sau." },
         { status: 502 },
       );
     }
@@ -55,7 +62,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json(
-      { ok: false, message: "Unexpected server error." },
+      { ok: false, message: "Đã xảy ra lỗi máy chủ. Vui lòng thử lại sau." },
       { status: 500 },
     );
   }

@@ -1,18 +1,18 @@
 const TESTIMONIALS = [
   {
-    name: "Hoc vien A (placeholder)",
+    name: "Học viên A (minh họa)",
     quote:
-      "Truoc day minh len san khong biet bat dau tu dau. Sau 2 tuan da biet dung doi hinh va danh tu tin hon.",
+      "Trước đây mình lên sân không biết bắt đầu từ đâu. Sau hai tuần đã biết giữ đội hình và tự tin hơn hẳn.",
   },
   {
-    name: "Hoc vien B (placeholder)",
+    name: "Học viên B (minh họa)",
     quote:
-      "Checklist truoc buoi tap voi Coach rat huu ich, tiet kiem kha nhieu thoi gian lam quen.",
+      "Checklist trước buổi tập với Coach rất hữu ích, tiết kiệm đáng kể thời gian làm quen.",
   },
   {
-    name: "Hoc vien C (placeholder)",
+    name: "Học viên C (minh họa)",
     quote:
-      "Module phoi hop 2 nguoi giup doi minh giao tiep tot hon, giam loi va giu nhip tran dau tot.",
+      "Module phối hợp hai người giúp đội mình giao tiếp tốt hơn, giảm lỗi và giữ nhịp trận đấu ổn định.",
   },
 ];
 
@@ -21,7 +21,7 @@ export function TestimonialsSection() {
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-2xl font-bold md:text-3xl">
-          Cam nhan hoc vien (placeholder)
+          Cảm nhận học viên (minh họa)
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {TESTIMONIALS.map((item) => (
@@ -29,7 +29,7 @@ export function TestimonialsSection() {
               key={item.name}
               className="rounded-xl border border-slate-800 bg-slate-900/50 p-4"
             >
-              <p className="text-slate-200">"{item.quote}"</p>
+              <p className="text-slate-200">“{item.quote}”</p>
               <p className="mt-3 text-sm font-semibold text-emerald-300">
                 {item.name}
               </p>

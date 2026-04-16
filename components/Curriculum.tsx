@@ -1,17 +1,19 @@
 const MODULES = [
-  "Module 1 - Nen tang de khong mat suc, khong roi",
-  "Module 2 - Serve & Return cho danh doi",
-  "Module 3 - Len luoi & giu doi hinh",
-  "Module 4 - NVZ/Dink du dung: giu bong thap, giam loi, tao nhip cho doi ban",
-  "Module 5 - Phoi hop 2 nguoi: giao tiep, phan vai",
-  "Module 6 - Chien thuat toi gian (shot selection) ap dung ngay",
+  "Module 1 — Nền tảng để không mất sức, không rối",
+  "Module 2 — Serve & return cho đánh đôi",
+  "Module 3 — Lên lưới & giữ đội hình",
+  "Module 4 — NVZ/dink đủ dùng: giữ bóng thấp, giảm lỗi, tạo nhịp cho đội",
+  "Module 5 — Phối hợp hai người: giao tiếp, phân vai",
+  "Module 6 — Chiến thuật tối giản (chọn cú đánh) áp dụng ngay",
 ];
 
 export function Curriculum() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">Curriculum 6 Modules</h2>
+        <h2 className="text-2xl font-bold md:text-3xl">
+          Chương trình sáu module — đánh đôi
+        </h2>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           {MODULES.map((item) => (
             <li

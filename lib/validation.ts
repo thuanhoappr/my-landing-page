@@ -59,7 +59,7 @@ export function validateLeadInput(input: unknown):
   | { ok: true; data: LeadInput }
   | { ok: false; message: string } {
   if (!input || typeof input !== "object") {
-    return { ok: false, message: "Invalid input payload." };
+    return { ok: false, message: "Dữ liệu gửi lên không hợp lệ." };
   }
 
   const body = input as Record<string, unknown>;
@@ -73,19 +73,19 @@ export function validateLeadInput(input: unknown):
   const companyWebsite = String(body.companyWebsite ?? "").trim();
 
   if (companyWebsite.length > 0) {
-    return { ok: false, message: "Spam blocked." };
+    return { ok: false, message: "Yêu cầu bị từ chối." };
   }
   if (fullName.length < 2) {
-    return { ok: false, message: "FullName is required." };
+    return { ok: false, message: "Vui lòng nhập họ và tên." };
   }
   if (!isEmail(email)) {
-    return { ok: false, message: "Email is invalid." };
+    return { ok: false, message: "Email không hợp lệ." };
   }
   if (!goal) {
-    return { ok: false, message: "Goal is required." };
+    return { ok: false, message: "Vui lòng chọn mục tiêu." };
   }
   if (!consent) {
-    return { ok: false, message: "Consent is required." };
+    return { ok: false, message: "Vui lòng đồng ý nhận thông tin từ khóa học." };
   }
 
   return {
@@ -107,7 +107,7 @@ export function validateZaloInput(input: unknown):
   | { ok: true; data: ZaloInput }
   | { ok: false; message: string } {
   if (!input || typeof input !== "object") {
-    return { ok: false, message: "Invalid input payload." };
+    return { ok: false, message: "Dữ liệu gửi lên không hợp lệ." };
   }
 
   const body = input as Record<string, unknown>;
@@ -115,10 +115,10 @@ export function validateZaloInput(input: unknown):
   const zalo = String(body.zalo ?? "").trim();
 
   if (!isEmail(email)) {
-    return { ok: false, message: "Email is invalid." };
+    return { ok: false, message: "Email không hợp lệ." };
   }
   if (zalo.length < 2) {
-    return { ok: false, message: "Zalo is required." };
+    return { ok: false, message: "Vui lòng nhập Zalo." };
   }
 
   return { ok: true, data: { email, zalo } };
