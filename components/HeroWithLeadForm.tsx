@@ -94,10 +94,10 @@ export function HeroWithLeadForm() {
             Pickleball Coach-Ready: học online để ra sân đánh “trí tuệ hơn”!
           </h1>
           <p className="landing-lead text-lg leading-relaxed">
-            Dành cho người bận rộn nhưng không muốn đứng trên sân kiểu mò mẫm.
-            Bạn học trước phần nền và cách đọc trận đôi; khi gặp Coach, ta bỏ
-            thời gian nói suông — nhảy thẳng vào bóng, vào vị trí, vào tình
-            huống.
+            Dành cho người bận rộn, không muốn đứng trên sân kiểu mò mẫm. Bạn học
+            để hiểu tấm bản đồ, lộ trình sẽ trải qua. Khi gặp Coach offline, bớt
+            thời gian nói lý thuyết suông — tập luyện và nhảy thẳng vào bóng,
+            tình huống thực tế, vị trí trên sân có chủ đích rõ ràng, cụ thể.
           </p>
           <p className="rounded-lg border border-emerald-400/35 bg-emerald-950/40 p-3 text-sm leading-relaxed text-emerald-50 shadow-lg backdrop-blur-md">
             <strong className="font-semibold text-emerald-100">Học online trước</strong> để ra
@@ -137,7 +137,7 @@ export function HeroWithLeadForm() {
           className="glass-panel-lg border-white/20 p-6 shadow-2xl"
         >
           <h2 className="mb-2 text-xl font-semibold text-white drop-shadow-md">
-            Để lại thông tin — mình gửi bạn lộ trình và phần quà kèm sân
+            Để lại thông tin — mình gửi bạn Quà tặng Thực chiến ra sân!
           </h2>
           <p className="mb-4 text-sm text-slate-200">
             Không spam. Chỉ những thứ giúp bạn vào sân đỡ ngượng hơn và đánh đôi
@@ -145,7 +145,7 @@ export function HeroWithLeadForm() {
           </p>
           <div className="space-y-4">
             <Input
-              label="Họ và tên *"
+              label="Tên bạn /Nickname *"
               value={form.fullName}
               onChange={(value) => setForm((prev) => ({ ...prev, fullName: value }))}
               required
@@ -158,7 +158,7 @@ export function HeroWithLeadForm() {
               required
             />
             <Input
-              label="Điện thoại (tùy chọn)"
+              label="Điện thoại (Zalo)*"
               value={form.phone}
               onChange={(value) => setForm((prev) => ({ ...prev, phone: value }))}
             />

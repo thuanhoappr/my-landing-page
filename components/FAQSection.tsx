@@ -32,8 +32,8 @@ const FAQS = [
     a: "Mình dạy theo tình huống: khi nào lên để ăn điểm, khi nào ở lại cho chắc — tránh kiểu “thấy người ta lên mình lên”.",
   },
   {
-    q: "NVZ / dink có phải kiểu nghệ sĩ không?",
-    a: "Không cần đẹp như clip TikTok. Mình chỉ cần bạn dink đủ an toàn, giữ rally, rồi chờ thời điểm dứt điểm — thực dụng là chính.",
+    q: "Dink/Volley có phải kiểu nghệ sĩ không?",
+    a: "Không cần đẹp như clip TikTok. Mình chỉ cần bạn dink và volley ở khu vực lưới đủ an toàn, giữ rally, rồi chờ thời điểm dứt điểm — thực dụng là chính.",
   },
   {
     q: "Đăng ký xong thì sao?",

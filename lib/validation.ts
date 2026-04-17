@@ -76,7 +76,7 @@ export function validateLeadInput(input: unknown):
     return { ok: false, message: "Yêu cầu bị từ chối." };
   }
   if (fullName.length < 2) {
-    return { ok: false, message: "Vui lòng nhập họ và tên." };
+    return { ok: false, message: "Vui lòng nhập tên hoặc nickname." };
   }
   if (!isEmail(email)) {
     return { ok: false, message: "Email không hợp lệ." };
