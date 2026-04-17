@@ -17,7 +17,7 @@ export function OutcomesSection() {
           Bạn nhận được gì — nói thẳng, không vòng vo
         </h2>
         <p className="landing-lead mt-3 text-base leading-relaxed md:text-lg">
-          Coach-Ready không cố nhồi bạn thật nhiều “tính năng”. Mình chỉ quan
+          Khóa học này không cố nhồi bạn thật nhiều “tính năng”. Mình chỉ quan
           tâm một thứ: sau mỗi tuần, bạn ra sân đánh đôi có cảm giác kiểm soát
           hơn — ít lỗi ngớ ngẩn hơn, nhiều rally có chủ đích hơn, và buổi tập
           với Coach đi thẳng vào chỗ cần sửa.

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pickleball Coach-Ready",
+  title: "Pickleball cho Người Nhập Môn",
   description:
-    "Học online gọn cho người bận — ra sân đánh đôi có nhịp, có checklist; gặp Coach là vào bài luôn.",
+    "Chuẩn bị online gọn gàng — ra sân tập chơi có nhịp, có checklist; gặp Coach là vào bài luôn.",
 };
 
 export default function RootLayout({

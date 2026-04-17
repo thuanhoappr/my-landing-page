@@ -27,7 +27,7 @@ export default function ThankYouPage() {
             Cảm ơn bạn — chỗ này là phần thưởng cho quyết định “tôi muốn chơi đôi
             cho ra hồn”
             <span className="mt-2 block text-emerald-300 drop-shadow-md">
-              Pickleball Coach-Ready
+              Pickleball cho Người Nhập Môn
             </span>
           </h1>
           <p className="landing-lead mt-4 text-base leading-relaxed">

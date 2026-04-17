@@ -104,10 +104,10 @@ export function HeroWithLeadForm() {
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-10">
         <div className="space-y-6">
           <p className="text-sm font-medium uppercase tracking-widest text-emerald-300 drop-shadow-md">
-            Pickleball Coach-Ready
+            Pickleball cho Người Nhập Môn
           </p>
           <h1 className="landing-heading text-3xl leading-tight md:text-5xl md:leading-tight">
-            Pickleball Coach-Ready: học online để ra sân đánh “trí tuệ hơn”!
+            Pickleball cho Người Nhập Môn: chuẩn bị trước lúc ra sân tập chơi!
           </h1>
           <p className="landing-lead text-lg leading-relaxed">
             Dành cho người bận rộn, không muốn đứng trên sân kiểu mò mẫm. Bạn học
