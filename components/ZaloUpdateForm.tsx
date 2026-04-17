@@ -41,24 +41,26 @@ export function ZaloUpdateForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
       <label className="block">
-        <span className="mb-1 block text-sm text-slate-200">
+        <span className="mb-1 block text-sm font-medium text-slate-100">
           Email bạn vừa đăng ký *
         </span>
         <input
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
+          className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
           required
         />
       </label>
       <label className="block">
-        <span className="mb-1 block text-sm text-slate-200">Zalo của bạn *</span>
+        <span className="mb-1 block text-sm font-medium text-slate-100">
+          Zalo của bạn *
+        </span>
         <input
           type="text"
           value={zalo}
           onChange={(event) => setZalo(event.target.value)}
-          className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
+          className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
           placeholder="Số điện thoại hoặc Zalo ID là được"
           required
         />
@@ -70,7 +72,7 @@ export function ZaloUpdateForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded-lg bg-emerald-400 px-4 py-2 font-semibold text-slate-900 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
+        className="rounded-lg bg-emerald-400 px-4 py-2.5 font-semibold text-slate-900 shadow-md transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
       >
         {isSubmitting ? "Đang gửi…" : "Gửi Zalo cho mình"}
       </button>

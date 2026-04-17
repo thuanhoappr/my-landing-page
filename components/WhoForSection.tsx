@@ -2,15 +2,15 @@ export function WhoForSection() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2">
-        <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
-          <h3 className="text-xl font-semibold text-emerald-200">
+        <div className="glass-emerald p-5 md:p-6">
+          <h3 className="text-xl font-semibold text-emerald-100 drop-shadow-sm">
             Nếu bạn là kiểu người này — vào đây là đúng chỗ
           </h3>
-          <p className="mt-2 text-sm text-emerald-100/90">
+          <p className="mt-2 text-sm leading-relaxed text-emerald-50/95">
             Không cần bạn giỏi từ đầu. Chỉ cần bạn muốn ra sân mà không thấy
             ngượng vì “không biết mình nên làm gì”.
           </p>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-100">
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-50">
             <li>
               Bạn mới cầm vợt, nghe mọi người nói chuyện pickleball như đã chơi
               mười năm — còn bạn thì đang lo không dính được bóng.
@@ -30,15 +30,15 @@ export function WhoForSection() {
             </li>
           </ul>
         </div>
-        <div className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-5">
-          <h3 className="text-xl font-semibold text-rose-200">
+        <div className="glass-rose p-5 md:p-6">
+          <h3 className="text-xl font-semibold text-rose-100 drop-shadow-sm">
             Mình nói thẳng: khóa này có thể chưa hợp nếu bạn…
           </h3>
-          <p className="mt-2 text-sm text-rose-100/90">
+          <p className="mt-2 text-sm leading-relaxed text-rose-50/95">
             Không phải vì bạn “chưa đủ level”. Đôi khi chỉ là… chưa đúng thứ bạn
             đang tìm lúc này.
           </p>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-100">
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-50">
             <li>
               Bạn đang cần lộ trình thi đấu nâng cao, chuyên sâu ngay — kiểu
               fine-tune từng milimet cho giải; khóa này ưu tiên người cần “đánh

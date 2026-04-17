@@ -87,37 +87,37 @@ export function HeroWithLeadForm() {
     <section id="lead-form" className="px-4 pb-12 pt-10 md:pb-16 md:pt-14">
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-12">
         <div className="space-y-6">
-          <p className="text-sm uppercase tracking-widest text-emerald-300">
+          <p className="text-sm font-medium uppercase tracking-widest text-emerald-300 drop-shadow-md">
             Pickleball Coach-Ready
           </p>
-          <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-            Pickleball Coach-Ready: học online để ra sân đánh đôi “có nội dung”
+          <h1 className="landing-heading text-3xl leading-tight md:text-5xl md:leading-tight">
+            Pickleball Coach-Ready: học online để ra sân đánh “trí tuệ hơn”!
           </h1>
-          <p className="text-lg text-slate-300">
+          <p className="landing-lead text-lg leading-relaxed">
             Dành cho người bận rộn nhưng không muốn đứng trên sân kiểu mò mẫm.
             Bạn học trước phần nền và cách đọc trận đôi; khi gặp Coach, ta bỏ
             thời gian nói suông — nhảy thẳng vào bóng, vào vị trí, vào tình
             huống.
           </p>
-          <p className="rounded-lg border border-emerald-400/30 bg-emerald-400/10 p-3 text-sm text-emerald-200">
-            Một câu thôi: học online trước để buổi ra sân với Coach không còn là
-            buổi “lý thuyết kéo dài”, mà là buổi bạn đập bóng có mục đích.
+          <p className="rounded-lg border border-emerald-400/35 bg-emerald-950/40 p-3 text-sm leading-relaxed text-emerald-50 shadow-lg backdrop-blur-md">
+            <strong className="font-semibold text-emerald-100">Học online trước</strong> để ra
+            sân với Coach không còn là buổi “lý thuyết kéo dài”, mà là buổi bạn
+            đánh bóng có mục đích.
           </p>
 
-          <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
-            <p className="mb-3 text-sm font-semibold text-slate-200">
-              Nếu bạn đang viết quảng cáo / bài đăng, đây là vài câu mở “dính”
-              người chơi
+          <div className="glass-panel p-4 md:p-5">
+            <p className="mb-3 text-sm font-semibold text-white">
+              Bạn có mong muốn này khi ra sân pickleball ?
             </p>
-            <ul className="list-disc space-y-2 pl-5 text-sm text-slate-300">
+            <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-100">
               {headlineOptions.map((headline) => (
                 <li key={headline}>{headline}</li>
               ))}
             </ul>
-            <p className="mt-4 text-sm font-semibold text-slate-200">
-              Hai hướng sub-headline gợi ý
+            <p className="mt-4 text-sm font-semibold text-white">
+              Mục đích của khóa học online này giúp bạn điều gì?
             </p>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-slate-300">
+            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-100">
               <li>
                 Cho người mới lẫn người quay lại sau vài tháng bận: mỗi ngày
                 15–20 phút, ra sân có checklist — không còn cảm giác “hôm nay tập
@@ -134,12 +134,12 @@ export function HeroWithLeadForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl"
+          className="glass-panel-lg border-white/20 p-6 shadow-2xl"
         >
-          <h2 className="mb-2 text-xl font-semibold">
+          <h2 className="mb-2 text-xl font-semibold text-white drop-shadow-md">
             Để lại thông tin — mình gửi bạn lộ trình và phần quà kèm sân
           </h2>
-          <p className="mb-4 text-sm text-slate-400">
+          <p className="mb-4 text-sm text-slate-200">
             Không spam. Chỉ những thứ giúp bạn vào sân đỡ ngượng hơn và đánh đôi
             có nhịp hơn.
           </p>
@@ -164,7 +164,7 @@ export function HeroWithLeadForm() {
             />
 
             <label className="block">
-              <span className="mb-1 block text-sm text-slate-200">
+              <span className="mb-1 block text-sm font-medium text-slate-100">
                 Bạn đang muốn điều gì nhất lúc này? *
               </span>
               <select
@@ -172,11 +172,15 @@ export function HeroWithLeadForm() {
                 onChange={(event) =>
                   setForm((prev) => ({ ...prev, goal: event.target.value }))
                 }
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
+                className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
                 required
               >
                 {GOAL_OPTIONS.map((option) => (
-                  <option key={option} value={option}>
+                  <option
+                    key={option}
+                    value={option}
+                    className="bg-slate-900 text-slate-100"
+                  >
                     {option}
                   </option>
                 ))}
@@ -184,7 +188,7 @@ export function HeroWithLeadForm() {
             </label>
 
             <label className="block">
-              <span className="mb-1 block text-sm text-slate-200">
+              <span className="mb-1 block text-sm font-medium text-slate-100">
                 Ghi chú thêm (tùy chọn)
               </span>
               <textarea
@@ -193,12 +197,12 @@ export function HeroWithLeadForm() {
                   setForm((prev) => ({ ...prev, note: event.target.value }))
                 }
                 rows={3}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
+                className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-400 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
                 placeholder="Ví dụ: hay pop-up lỗi, hay bị kẹt ở NVZ, hay không hiểu khi nào nên ở lại sau lưới…"
               />
             </label>
 
-            <label className="flex items-start gap-2 text-sm text-slate-300">
+            <label className="flex items-start gap-2 text-sm text-slate-100">
               <input
                 type="checkbox"
                 checked={form.consent}
@@ -227,7 +231,7 @@ export function HeroWithLeadForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full rounded-lg bg-emerald-400 px-4 py-2 font-semibold text-slate-900 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
+              className="w-full rounded-lg bg-emerald-400 px-4 py-2.5 font-semibold text-slate-900 shadow-lg transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
             >
               {isSubmitting ? "Đang gửi…" : "Gửi cho mình — mình lo phần còn lại"}
             </button>
@@ -253,12 +257,12 @@ function Input({
 }) {
   return (
     <label className="block">
-      <span className="mb-1 block text-sm text-slate-200">{label}</span>
+      <span className="mb-1 block text-sm font-medium text-slate-100">{label}</span>
       <input
         type={type}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none ring-emerald-400/40 focus:ring"
+        className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
         required={required}
       />
     </label>

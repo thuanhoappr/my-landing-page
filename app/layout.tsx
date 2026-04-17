@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body>{children}</body>
+      <body className="min-h-screen bg-slate-950 antialiased">{children}</body>
     </html>
   );
 }

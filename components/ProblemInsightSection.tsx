@@ -12,10 +12,10 @@ export function ProblemInsightSection() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">
+        <h2 className="landing-heading text-2xl md:text-3xl">
           Có quen không? Những “hạt cát” làm bạn khó chịu trên sân đôi
         </h2>
-        <p className="mt-3 text-slate-300">
+        <p className="landing-lead mt-3 text-base leading-relaxed md:text-lg">
           Mình không bán cho bạn một đống thuật ngữ. Mình chỉ muốn bạn đỡ cảm
           giác “mình đánh được nhưng sao cứ thua kiểu ngớ ngẩn” — vì đánh đôi,
           thua thường đến từ nhịp và vị trí, không phải từ một cú hoành tráng
@@ -25,7 +25,7 @@ export function ProblemInsightSection() {
           {ITEMS.map((item) => (
             <li
               key={item}
-              className="rounded-xl border border-slate-800 bg-slate-900/50 p-4 text-slate-200"
+              className="glass-panel p-4 text-slate-100 md:p-5"
             >
               {item}
             </li>

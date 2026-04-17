@@ -35,10 +35,10 @@ export function Curriculum() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">
-          Sáu lời hứa — mỗi module là một thứ bạn cảm nhận được trên sân
+        <h2 className="landing-heading text-2xl md:text-3xl">
+          6 Module — mỗi module là một thứ bạn cảm nhận được trên sân
         </h2>
-        <p className="mt-2 text-slate-400">
+        <p className="landing-muted mt-2 text-base">
           Không liệt kê cho đẹp. Mỗi phần là một câu trả lời cho câu hỏi: “Sau
           module này, trận đôi của tôi khác chỗ nào?”
         </p>
@@ -46,15 +46,15 @@ export function Curriculum() {
           {MODULES.map((item, index) => (
             <li
               key={item.promise}
-              className="rounded-xl border border-slate-800 bg-slate-900/50 p-5"
+              className="glass-panel p-5 md:p-6"
             >
-              <p className="text-xs font-medium uppercase tracking-wide text-emerald-400/90">
+              <p className="text-xs font-medium uppercase tracking-wide text-emerald-300/95">
                 Module {index + 1}
               </p>
-              <p className="mt-2 text-base font-semibold leading-snug text-slate-100">
+              <p className="mt-2 text-base font-semibold leading-snug text-white drop-shadow-sm">
                 {item.promise}
               </p>
-              <p className="mt-2 text-sm text-slate-400">{item.anchor}</p>
+              <p className="mt-2 text-sm text-slate-200">{item.anchor}</p>
             </li>
           ))}
         </ul>

@@ -13,10 +13,10 @@ export function OutcomesSection() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">
+        <h2 className="landing-heading text-2xl md:text-3xl">
           Bạn nhận được gì — nói thẳng, không vòng vo
         </h2>
-        <p className="mt-3 text-slate-300">
+        <p className="landing-lead mt-3 text-base leading-relaxed md:text-lg">
           Coach-Ready không cố nhồi bạn thật nhiều “tính năng”. Mình chỉ quan
           tâm một thứ: sau mỗi tuần, bạn ra sân đánh đôi có cảm giác kiểm soát
           hơn — ít lỗi ngớ ngẩn hơn, nhiều rally có chủ đích hơn, và buổi tập
@@ -26,7 +26,7 @@ export function OutcomesSection() {
           {OUTCOMES.map((item) => (
             <p
               key={item}
-              className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-emerald-100"
+              className="glass-outcome p-4 leading-relaxed md:p-5"
             >
               {item}
             </p>

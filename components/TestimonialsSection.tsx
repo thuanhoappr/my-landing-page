@@ -20,10 +20,10 @@ export function TestimonialsSection() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">
-          Người chơi nói gì (minh họa — để bạn hình dung vibe lớp)
+        <h2 className="landing-heading text-2xl md:text-3xl">
+          Người chơi đã học online nói gì ?
         </h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <p className="landing-muted mt-2 text-sm md:text-base">
           Đây là giọng điệu thật trên sân: ngắn, thẳng, không phải review kiểu
           marketing sáo rỗng.
         </p>
@@ -31,10 +31,10 @@ export function TestimonialsSection() {
           {TESTIMONIALS.map((item) => (
             <article
               key={item.name}
-              className="rounded-xl border border-slate-800 bg-slate-900/50 p-4"
+              className="glass-panel p-4 md:p-5"
             >
-              <p className="text-slate-200">“{item.quote}”</p>
-              <p className="mt-3 text-sm font-semibold text-emerald-300">
+              <p className="text-slate-100">“{item.quote}”</p>
+              <p className="mt-3 text-sm font-semibold text-emerald-300 drop-shadow-sm">
                 {item.name}
               </p>
             </article>

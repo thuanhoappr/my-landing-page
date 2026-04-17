@@ -21,10 +21,10 @@ export function Roadmap4Weeks() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">
-          Bốn tuần — mỗi tuần một lớp tự tin, không xếp lịch kiểu marathon
+        <h2 className="landing-heading text-2xl md:text-3xl">
+          4 tuần — mỗi tuần một sự tự tin, không xếp lịch kiểu marathon
         </h2>
-        <p className="mt-2 text-slate-400">
+        <p className="landing-muted mt-2 text-base">
           Thiết kế cho người bận: mỗi ngày một chút, nhưng mỗi tuần phải thấy
           “chơi khác đi” khi ra sân đôi.
         </p>
@@ -32,10 +32,12 @@ export function Roadmap4Weeks() {
           {WEEKS.map((week) => (
             <div
               key={week.title}
-              className="rounded-xl border border-slate-800 bg-slate-900/50 p-4"
+              className="glass-panel p-4 md:p-5"
             >
-              <p className="font-semibold text-emerald-300">{week.title}</p>
-              <p className="mt-1 text-slate-300">{week.desc}</p>
+              <p className="font-semibold text-emerald-300 drop-shadow-sm">
+                {week.title}
+              </p>
+              <p className="mt-1 text-slate-100">{week.desc}</p>
             </div>
           ))}
         </div>

@@ -45,19 +45,16 @@ export function FAQSection() {
   return (
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl font-bold md:text-3xl">
-          Hỏi nhanh — trả lời thẳng (kiểu nói chuyện ở hàng nước sau sân)
+        <h2 className="landing-heading text-2xl md:text-3xl">
+          Hỏi nhanh — đáp thẳng
         </h2>
         <div className="mt-6 space-y-3">
           {FAQS.map((faq) => (
-            <details
-              key={faq.q}
-              className="rounded-xl border border-slate-800 bg-slate-900/50 p-4"
-            >
-              <summary className="cursor-pointer font-semibold text-slate-100">
+            <details key={faq.q} className="glass-panel p-4">
+              <summary className="cursor-pointer font-semibold text-white drop-shadow-sm">
                 {faq.q}
               </summary>
-              <p className="mt-2 text-slate-300">{faq.a}</p>
+              <p className="mt-2 text-slate-100 leading-relaxed">{faq.a}</p>
             </details>
           ))}
         </div>
