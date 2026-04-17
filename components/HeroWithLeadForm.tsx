@@ -14,12 +14,28 @@ type LeadFormData = {
   companyWebsite: string;
 };
 
-const GOAL_OPTIONS = [
-  "Mình mới cầm vợt — muốn vào sân mà không ngại ngùng",
-  "Đánh được rồi nhưng đánh đôi vẫn rối, muốn gọn lại từng bước",
-  "Muốn lên lưới đúng lúc, đỡ hụt hơi và đỡ đứng sai chỗ",
-  "Muốn ăn ý với bạn đánh — ít la hét, nhiều điểm hơn",
-  "Sắp tập với Coach — muốn buổi đó vào game luôn, không mất nửa giờ làm quen",
+/** `value` gửi Formspree/Make giữ nguyên; `label` chỉ để hiển thị gọn trong select */
+const GOAL_CHOICES: { value: string; label: string }[] = [
+  {
+    value: "Mình mới cầm vợt — muốn vào sân mà không ngại ngùng",
+    label: "Mới chơi — vào sân không ngại",
+  },
+  {
+    value: "Đánh được rồi nhưng đánh đôi vẫn rối, muốn gọn lại từng bước",
+    label: "Đánh đôi rối — cần gọn từng bước",
+  },
+  {
+    value: "Muốn lên lưới đúng lúc, đỡ hụt hơi và đỡ đứng sai chỗ",
+    label: "Lên lưới đúng lúc, đỡ mất sức",
+  },
+  {
+    value: "Muốn ăn ý với bạn đánh — ít la hét, nhiều điểm hơn",
+    label: "Ăn ý đồng đội — ít ồn, nhiều điểm",
+  },
+  {
+    value: "Sắp tập với Coach — muốn buổi đó vào game luôn, không mất nửa giờ làm quen",
+    label: "Sắp gặp Coach — vào game luôn",
+  },
 ];
 
 export function HeroWithLeadForm() {
@@ -28,7 +44,7 @@ export function HeroWithLeadForm() {
     fullName: "",
     email: "",
     phone: "",
-    goal: GOAL_OPTIONS[0],
+    goal: GOAL_CHOICES[0].value,
     note: "",
     pageUrl: "",
     consent: true,
@@ -85,7 +101,7 @@ export function HeroWithLeadForm() {
 
   return (
     <section id="lead-form" className="px-4 pb-12 pt-10 md:pb-16 md:pt-14">
-      <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-12">
+      <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-10">
         <div className="space-y-6">
           <p className="text-sm font-medium uppercase tracking-widest text-emerald-300 drop-shadow-md">
             Pickleball Coach-Ready
@@ -134,84 +150,94 @@ export function HeroWithLeadForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="glass-panel-lg border-white/20 p-6 shadow-2xl"
+          className="glass-panel-lg h-fit border-white/20 p-4 shadow-2xl sm:p-5"
         >
-          <h2 className="mb-2 text-xl font-semibold text-white drop-shadow-md">
-            Để lại thông tin — mình gửi bạn Quà tặng Thực chiến ra sân!
-          </h2>
-          <p className="mb-4 text-sm text-slate-200">
-            Không spam. Chỉ những thứ giúp bạn vào sân đỡ ngượng hơn và đánh đôi
-            có nhịp hơn.
-          </p>
-          <div className="space-y-4">
+          <div className="border-b border-white/10 pb-3">
+            <h2 className="text-base font-semibold leading-snug text-white drop-shadow-md sm:text-lg">
+              <span className="font-normal text-slate-300">Đăng ký · </span>
+              Quà tặng Thực chiến ra sân!
+            </h2>
+            <p className="mt-1 text-[11px] text-slate-400 sm:text-xs">
+              Form ngắn — không spam.
+            </p>
+          </div>
+
+          <div className="mt-4 space-y-3">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Input
+                label="Tên / Nickname *"
+                value={form.fullName}
+                onChange={(value) => setForm((prev) => ({ ...prev, fullName: value }))}
+                required
+                compact
+              />
+              <Input
+                label="Email *"
+                type="email"
+                value={form.email}
+                onChange={(value) => setForm((prev) => ({ ...prev, email: value }))}
+                required
+                compact
+              />
+            </div>
+
             <Input
-              label="Tên bạn /Nickname *"
-              value={form.fullName}
-              onChange={(value) => setForm((prev) => ({ ...prev, fullName: value }))}
-              required
-            />
-            <Input
-              label="Email *"
-              type="email"
-              value={form.email}
-              onChange={(value) => setForm((prev) => ({ ...prev, email: value }))}
-              required
-            />
-            <Input
-              label="Điện thoại (Zalo)*"
+              label="Zalo (SĐT, tuỳ chọn)"
               value={form.phone}
               onChange={(value) => setForm((prev) => ({ ...prev, phone: value }))}
+              placeholder="VD: 0912…"
+              compact
             />
 
             <label className="block">
-              <span className="mb-1 block text-sm font-medium text-slate-100">
-                Bạn đang muốn điều gì nhất lúc này? *
+              <span className="mb-0.5 block text-xs font-medium text-slate-200">
+                Ưu tiên của bạn *
               </span>
               <select
                 value={form.goal}
                 onChange={(event) =>
                   setForm((prev) => ({ ...prev, goal: event.target.value }))
                 }
-                className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
+                className="w-full rounded-md border border-white/15 bg-black/40 px-2.5 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
                 required
               >
-                {GOAL_OPTIONS.map((option) => (
+                {GOAL_CHOICES.map(({ value, label }) => (
                   <option
-                    key={option}
-                    value={option}
+                    key={value}
+                    value={value}
                     className="bg-slate-900 text-slate-100"
                   >
-                    {option}
+                    {label}
                   </option>
                 ))}
               </select>
             </label>
 
-            <label className="block">
-              <span className="mb-1 block text-sm font-medium text-slate-100">
-                Ghi chú thêm (tùy chọn)
-              </span>
+            <details className="rounded-md border border-white/10 bg-black/20 px-2 py-1.5 backdrop-blur-sm">
+              <summary className="cursor-pointer select-none text-xs font-medium text-slate-300 hover:text-slate-100">
+                Ghi chú (tuỳ chọn)
+              </summary>
               <textarea
                 value={form.note}
                 onChange={(event) =>
                   setForm((prev) => ({ ...prev, note: event.target.value }))
                 }
-                rows={3}
-                className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-400 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
-                placeholder="Ví dụ: hay pop-up lỗi, hay bị kẹt ở NVZ, hay không hiểu khi nào nên ở lại sau lưới…"
+                rows={2}
+                className="mt-2 w-full rounded-md border border-white/10 bg-black/30 px-2 py-1.5 text-xs text-slate-50 placeholder:text-slate-500 outline-none focus:ring-1 focus:ring-emerald-400/50"
+                placeholder="VD: hay pop-up, kẹt NVZ…"
               />
-            </label>
+            </details>
 
-            <label className="flex items-start gap-2 text-sm text-slate-100">
+            <label className="flex items-center gap-2 text-xs text-slate-200">
               <input
                 type="checkbox"
                 checked={form.consent}
                 onChange={(event) =>
                   setForm((prev) => ({ ...prev, consent: event.target.checked }))
                 }
-                className="mt-0.5"
+                className="shrink-0"
               />
-              Tôi đồng ý nhận hướng dẫn và thông tin từ khóa học.
+              Đồng ý nhận email từ khóa học
             </label>
 
             <input
@@ -226,14 +252,18 @@ export function HeroWithLeadForm() {
               aria-hidden="true"
             />
 
-            {error ? <p className="text-sm text-rose-300">{error}</p> : null}
+            {error ? (
+              <p className="rounded-md bg-rose-950/50 px-2 py-1.5 text-xs leading-snug text-rose-200 ring-1 ring-rose-500/30">
+                {error}
+              </p>
+            ) : null}
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full rounded-lg bg-emerald-400 px-4 py-2.5 font-semibold text-slate-900 shadow-lg transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
+              className="w-full rounded-md bg-emerald-400 px-3 py-2.5 text-sm font-semibold text-slate-900 shadow-md transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
             >
-              {isSubmitting ? "Đang gửi…" : "Gửi cho mình — mình lo phần còn lại"}
+              {isSubmitting ? "Đang gửi…" : "Nhận quà & lộ trình"}
             </button>
           </div>
         </form>
@@ -248,21 +278,38 @@ function Input({
   onChange,
   type = "text",
   required = false,
+  placeholder,
+  compact = false,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   type?: string;
   required?: boolean;
+  placeholder?: string;
+  compact?: boolean;
 }) {
   return (
     <label className="block">
-      <span className="mb-1 block text-sm font-medium text-slate-100">{label}</span>
+      <span
+        className={
+          compact
+            ? "mb-0.5 block text-xs font-medium text-slate-200"
+            : "mb-1 block text-sm font-medium text-slate-100"
+        }
+      >
+        {label}
+      </span>
       <input
         type={type}
         value={value}
+        placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
+        className={
+          compact
+            ? "w-full rounded-md border border-white/15 bg-black/40 px-2.5 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm placeholder:text-slate-500 focus:ring-2"
+            : "w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
+        }
         required={required}
       />
     </label>
