@@ -1,11 +1,20 @@
 const ITEMS = [
-  "Bạn bận quá, lịch tập cứ chập chờn — lên sân là kiểu “đánh cho đỡ cứng người”, chứ chưa kịp sửa gì.",
-  "Buổi tập hay biến thành “hôm nay thử hết mọi thứ”: drop, drive, lob… xong về nhà vẫn không biết mình cần nhất cái nào cho đôi.",
-  "Đánh đôi mà cứ cảm giác mình đang đánh một mình: không rõ lúc nào mình cover, lúc nào nhường cho bạn.",
-  "Serve và return cứ an toàn quá — không sai, nhưng cũng chẳng tạo được áp lực; rally mở ra là thế trận đã nghiêng.",
-  "Lên lưới kiểu “thấy người ta lên mình lên” — hết sức mà điểm không tới, còn dễ lộ sân.",
-  "Nghe NVZ, dink… tưởng khó, nên né. Trong khi thật ra chỉ cần đủ để bóng qua lưới an toàn, trận đã khác hẳn.",
-  "Học online một kiểu, ra sân Coach dạy một kiểu — mất mấy chục phút mới “khớp nhịp”, uổng buổi tập.",
+  {
+    title: "Lịch trình dày đặc",
+    body: "Sáng bận ở văn phòng, tối về mệt — không có thời gian theo khóa kéo dài hàng tháng.",
+  },
+  {
+    title: "Sợ chấn thương",
+    body: "Lâu ngày không vận động, lo tự tập sai tư thế sẽ đau nhức xương khớp, ảnh hưởng công việc.",
+  },
+  {
+    title: "Choáng ngợp thông tin",
+    body: "Video trên mạng nhiều nhưng luật và kỹ thuật rườm rà — không biết bắt đầu từ đâu, chọn vợt ra sao.",
+  },
+  {
+    title: "Ngại ra sân vì “gà mờ”",
+    body: "Muốn chơi cùng hội bạn nhưng sợ đánh hỏng, kéo lùi cả đội — mất tự tin.",
+  },
 ];
 
 export function ProblemInsightSection() {
@@ -13,21 +22,19 @@ export function ProblemInsightSection() {
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
         <h2 className="landing-heading text-2xl md:text-3xl">
-          Có quen không? Những “hạt cát” làm bạn khó chịu trên sân đôi
+          Bạn có đang bỏ lỡ trào lưu mới chỉ vì những “rào cản” này?
         </h2>
         <p className="landing-lead mt-3 text-base leading-relaxed md:text-lg">
-          Mình không bán cho bạn một đống thuật ngữ. Mình chỉ muốn bạn đỡ cảm
-          giác “mình đánh được nhưng sao cứ thua kiểu ngớ ngẩn” — vì đánh đôi,
-          thua thường đến từ nhịp và vị trí, không phải từ một cú hoành tráng
-          nào cả.
+          Đừng lo — rất nhiều người bận rộn giống bạn cũng từng gặp những khó khăn
+          này trước khi tìm thấy lộ trình phù hợp với nhịp công việc.
         </p>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           {ITEMS.map((item) => (
-            <li
-              key={item}
-              className="glass-panel p-4 text-slate-100 md:p-5"
-            >
-              {item}
+            <li key={item.title} className="glass-panel p-4 text-slate-100 md:p-5">
+              <p className="font-semibold text-emerald-300 drop-shadow-sm">
+                {item.title}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed md:text-base">{item.body}</p>
             </li>
           ))}
         </ul>

@@ -7,6 +7,7 @@ import { ProblemInsightSection } from "@/components/ProblemInsightSection";
 import { Roadmap4Weeks } from "@/components/Roadmap4Weeks";
 import { WhoForSection } from "@/components/WhoForSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { SiteFooter } from "@/components/SiteFooter";
 import { LANDING_BACKGROUND_IMAGE } from "@/lib/landingBackground";
 
 export default function HomePage() {
@@ -31,6 +32,7 @@ export default function HomePage() {
         <TestimonialsSection />
         <FAQSection />
         <FinalCTA />
+        <SiteFooter />
       </main>
     </div>
   );

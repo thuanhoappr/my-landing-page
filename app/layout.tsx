@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pickleball cho Người Nhập Môn",
+  title: "Pickleball 30 Phút — Học Nhanh Chơi Chất",
   description:
-    "Chuẩn bị online gọn gàng — ra sân tập chơi có nhịp, có checklist; gặp Coach là vào bài luôn.",
+    "Khóa Nhập Môn Tốc Độ cho người đi làm: thực chiến Pickleball cùng Coach PPR (USA). Tập thử miễn phí, có vợt.",
 };
 
 export default function RootLayout({

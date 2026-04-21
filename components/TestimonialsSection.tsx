@@ -1,18 +1,18 @@
 const TESTIMONIALS = [
   {
-    name: "Bạn Lan (minh họa)",
+    name: "Chị Mai — nhân sự",
     quote:
-      "Trước giờ cứ sợ đánh đôi vì không biết mình đứng đâu cho đúng. Giờ xuống sân kiểu có bản đồ trong đầu, đỡ ngượng hẳn.",
+      "Mình bận tối mịt, sợ tập sai đau lưng. Sau vài buổi đã dám ra sân ghép kèo với team công ty.",
   },
   {
-    name: "Anh Tuấn (minh họa)",
+    name: "Anh Hùng — kỹ sư",
     quote:
-      "Checklist trước buổi với Coach là thứ mình không ngờ tới — không còn mất nửa tiếng ‘làm quen’ nữa, nhảy vào rally luôn.",
+      "Trước xem clip tùm lum, rối luật. Giờ nắm khung cơ bản, đỡ ngượng khi chơi cùng hội.",
   },
   {
-    name: "Cặp Minh — Hải (minh họa)",
+    name: "Cặp Thu — Lan",
     quote:
-      "Hai đứa hay cãi nhau vì ai cũng tưởng mình cover. Sau phần phối hợp, đánh đôi đỡ ồn mà… điểm lại nhiều hơn.",
+      "Tập thử có vợt sẵn là điểm cộng lớn. Vợ chồng mình vào nhịp nhanh hơn mình nghĩ.",
   },
 ];
 
@@ -21,18 +21,15 @@ export function TestimonialsSection() {
     <section className="px-4 py-12">
       <div className="mx-auto max-w-5xl">
         <h2 className="landing-heading text-2xl md:text-3xl">
-          Người chơi đã học online nói gì ?
+          Học viên nói gì sau khi bắt đầu?
         </h2>
         <p className="landing-muted mt-2 text-sm md:text-base">
-          Đây là giọng điệu thật trên sân: ngắn, thẳng, không phải review kiểu
-          marketing sáo rỗng.
+          Hơn 100 học viên đã qua lộ trình nhập môn — phản hồi ngắn gọn, đúng chất
+          người đi làm muốn: nhanh, rõ, áp dụng được.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {TESTIMONIALS.map((item) => (
-            <article
-              key={item.name}
-              className="glass-panel p-4 md:p-5"
-            >
+            <article key={item.name} className="glass-panel p-4 md:p-5">
               <p className="text-slate-100">“{item.quote}”</p>
               <p className="mt-3 text-sm font-semibold text-emerald-300 drop-shadow-sm">
                 {item.name}

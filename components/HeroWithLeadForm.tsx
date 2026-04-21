@@ -2,6 +2,13 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  SITE_BRAND,
+  SITE_COACH_LINE,
+  SITE_TAGLINE,
+  formatPhoneDisplay,
+  getSitePublicConfig,
+} from "@/lib/siteConfig";
 
 type LeadFormData = {
   fullName: string;
@@ -14,32 +21,31 @@ type LeadFormData = {
   companyWebsite: string;
 };
 
-/** `value` gửi Formspree/Make giữ nguyên; `label` chỉ để hiển thị gọn trong select */
 const GOAL_CHOICES: { value: string; label: string }[] = [
   {
-    value: "Mình mới cầm vợt — muốn vào sân mà không ngại ngùng",
-    label: "Mới chơi — vào sân không ngại",
+    value: "Tập thử miễn phí (có vợt sẵn)",
+    label: "Tập thử miễn phí (có vợt)",
   },
   {
-    value: "Đánh được rồi nhưng đánh đôi vẫn rối, muốn gọn lại từng bước",
-    label: "Đánh đôi rối — cần gọn từng bước",
+    value: "Mua khóa học ưu đãi 99K",
+    label: "Mua khóa học ưu đãi 99K",
   },
   {
-    value: "Muốn lên lưới đúng lúc, đỡ hụt hơi và đỡ đứng sai chỗ",
-    label: "Lên lưới đúng lúc, đỡ mất sức",
-  },
-  {
-    value: "Muốn ăn ý với bạn đánh — ít la hét, nhiều điểm hơn",
-    label: "Ăn ý đồng đội — ít ồn, nhiều điểm",
-  },
-  {
-    value: "Sắp tập với Coach — muốn buổi đó vào game luôn, không mất nửa giờ làm quen",
-    label: "Sắp gặp Coach — vào game luôn",
+    value: "Muốn xem giáo trình tập online trước khi quyết định",
+    label: "Xem giáo trình / tư vấn thêm",
   },
 ];
 
 export function HeroWithLeadForm() {
   const router = useRouter();
+  const { adminPhoneRaw, zaloOaUrl } = getSitePublicConfig();
+  const adminTelHref =
+    adminPhoneRaw.length > 0
+      ? `tel:${adminPhoneRaw.replace(/\s/g, "")}`
+      : null;
+  const adminPhoneLabel =
+    adminPhoneRaw.length > 0 ? formatPhoneDisplay(adminPhoneRaw) : null;
+
   const [form, setForm] = useState<LeadFormData>({
     fullName: "",
     email: "",
@@ -53,13 +59,12 @@ export function HeroWithLeadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const headlineOptions = useMemo(
+  const pillars = useMemo(
     () => [
-      "Đánh đôi không còn kiểu “đánh cho vui rồi thua vì rối” — bạn biết mình đang làm gì trên sân.",
-      "Bận nhưng vẫn tiến bộ: học online gọn, ra sân là có việc để làm, không lãng phí buổi tập.",
-      "Không cần tập nhiều — chỉ cần tập đúng thứ khiến điểm số đôi của bạn đổi khác.",
-      "Ra sân mà trong đầu có sơ đồ: ai đứng đâu, lúc nào lên lưới, lúc nào giữ nhịp.",
-      "Từ “mình đánh được” sang “đội mình chơi có chủ đích” — đúng tinh thần pickleball đôi.",
+      "Giáo trình thực chiến: bỏ lý thuyết rườm rà, tập trung đánh được ngay.",
+      "Thời gian linh hoạt: trưa, tối hoặc cuối tuần — tùy lịch rảnh của bạn.",
+      "HLV tận tâm: chỉnh từng dáng đứng, cách vung vợt, tránh tập sai tư thế.",
+      "An toàn: đúng kỹ thuật từ đầu — hạn chế chấn thương khi vận động lại.",
     ],
     [],
   );
@@ -104,46 +109,76 @@ export function HeroWithLeadForm() {
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-10">
         <div className="space-y-6">
           <p className="text-sm font-medium uppercase tracking-widest text-emerald-300 drop-shadow-md">
-            Pickleball cho Người Nhập Môn
+            {SITE_BRAND} · {SITE_TAGLINE}
           </p>
           <h1 className="landing-heading text-3xl leading-tight md:text-5xl md:leading-tight">
-            Pickleball cho Người Nhập Môn: chuẩn bị trước lúc ra sân tập chơi!
+            Muốn tập Pickleball nhưng bận rộn, chưa có thời gian ra sân?
           </h1>
           <p className="landing-lead text-lg leading-relaxed">
-            Dành cho người bận rộn, không muốn đứng trên sân kiểu mò mẫm. Bạn học
-            để hiểu tấm bản đồ, lộ trình sẽ trải qua. Khi gặp Coach offline, bớt
-            thời gian nói lý thuyết suông — tập luyện và nhảy thẳng vào bóng,
-            tình huống thực tế, vị trí trên sân có chủ đích rõ ràng, cụ thể.
+            {SITE_COACH_LINE}. Khóa{" "}
+            <strong className="font-semibold text-emerald-200">
+              &quot;Nhập Môn Tốc Độ&quot;
+            </strong>{" "}
+            dành cho người đi làm: tập đúng kỹ thuật ngay từ đầu — tránh chấn
+            thương — tự tin ra sân giao lưu cùng đồng nghiệp, bạn bè.
           </p>
+
+          <div className="grid grid-cols-3 gap-2 text-center sm:gap-3">
+            <div className="glass-panel px-2 py-3 sm:px-3">
+              <p className="text-lg font-bold text-emerald-300 sm:text-xl">100+</p>
+              <p className="text-[10px] text-slate-300 sm:text-xs">
+                Học viên tốt nghiệp
+              </p>
+            </div>
+            <div className="glass-panel px-2 py-3 sm:px-3">
+              <p className="text-lg font-bold text-emerald-300 sm:text-xl">100%</p>
+              <p className="text-[10px] text-slate-300 sm:text-xs">
+                Tự tin ra sân
+              </p>
+            </div>
+            <div className="glass-panel px-2 py-3 sm:px-3">
+              <p className="text-lg font-bold text-emerald-300 sm:text-xl">5★</p>
+              <p className="text-[10px] text-slate-300 sm:text-xs">
+                Đánh giá chất lượng
+              </p>
+            </div>
+          </div>
+
           <p className="rounded-lg border border-emerald-400/35 bg-emerald-950/40 p-3 text-sm leading-relaxed text-emerald-50 shadow-lg backdrop-blur-md">
-            <strong className="font-semibold text-emerald-100">Học online trước</strong> để ra
-            sân với Coach không còn là buổi “lý thuyết kéo dài”, mà là buổi bạn
-            đánh bóng có mục đích.
+            <strong className="font-semibold text-emerald-100">
+              Làm chủ kiến thức tập luyện cơ bản
+            </strong>{" "}
+            chỉ sau vài buổi — cam kết thông tin đơn giản, dễ hiểu để bạn tự tin
+            nhập môn.
           </p>
+
+          <div className="flex flex-wrap items-center gap-3">
+            {adminTelHref && adminPhoneLabel ? (
+              <a
+                href={adminTelHref}
+                className="rounded-lg border border-white/20 bg-black/35 px-3 py-2 text-sm font-medium text-white backdrop-blur-sm transition hover:border-emerald-400/40"
+              >
+                Gọi / SMS: {adminPhoneLabel}
+              </a>
+            ) : null}
+            <a
+              href={zaloOaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-emerald-400 px-3 py-2 text-sm font-semibold text-slate-900 shadow-md transition hover:bg-emerald-300"
+            >
+              Chat Zalo
+            </a>
+          </div>
 
           <div className="glass-panel p-4 md:p-5">
             <p className="mb-3 text-sm font-semibold text-white">
-              Bạn có mong muốn này khi ra sân pickleball ?
+              Khóa &quot;Nhập Môn Tốc Độ&quot; — bạn nhận được gì?
             </p>
             <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-100">
-              {headlineOptions.map((headline) => (
-                <li key={headline}>{headline}</li>
+              {pillars.map((line) => (
+                <li key={line}>{line}</li>
               ))}
-            </ul>
-            <p className="mt-4 text-sm font-semibold text-white">
-              Mục đích của khóa học online này giúp bạn điều gì?
-            </p>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-100">
-              <li>
-                Cho người mới lẫn người quay lại sau vài tháng bận: mỗi ngày
-                15–20 phút, ra sân có checklist — không còn cảm giác “hôm nay tập
-                cái gì ta?”.
-              </li>
-              <li>
-                Không xây “bảo tàng kỹ thuật”. Chỉ lấy đúng thứ hay xảy ra trong
-                đôi: serve, return, lên lưới, NVZ, nói chuyện với đồng đội, rồi
-                chọn cú đánh cho điểm — gọn, thực dụng, đánh được ngay.
-              </li>
             </ul>
           </div>
         </div>
@@ -154,44 +189,43 @@ export function HeroWithLeadForm() {
         >
           <div className="border-b border-white/10 pb-3">
             <h2 className="text-base font-semibold leading-snug text-white drop-shadow-md sm:text-lg">
-              <span className="font-normal text-slate-300">Đăng ký · </span>
-              Quà tặng Thực chiến ra sân!
+              Đăng ký ngay — nhận buổi tập thử miễn phí
             </h2>
             <p className="mt-1 text-[11px] text-slate-400 sm:text-xs">
-              Form ngắn — không spam.
+              Có sẵn vợt · Thông tin bảo mật — chúng tôi không spam.
             </p>
           </div>
 
           <div className="mt-4 space-y-3">
-            <div className="grid gap-3 sm:grid-cols-2">
-              <Input
-                label="Tên / Nickname *"
-                value={form.fullName}
-                onChange={(value) => setForm((prev) => ({ ...prev, fullName: value }))}
-                required
-                compact
-              />
-              <Input
-                label="Email *"
-                type="email"
-                value={form.email}
-                onChange={(value) => setForm((prev) => ({ ...prev, email: value }))}
-                required
-                compact
-              />
-            </div>
+            <Input
+              label="Tên / Nickname *"
+              value={form.fullName}
+              onChange={(value) => setForm((prev) => ({ ...prev, fullName: value }))}
+              required
+              compact
+            />
 
             <Input
-              label="Zalo (SĐT, tuỳ chọn)"
+              label="Điện thoại *"
               value={form.phone}
               onChange={(value) => setForm((prev) => ({ ...prev, phone: value }))}
-              placeholder="VD: 0912…"
+              placeholder="VD: 0912345678"
+              required
+              compact
+            />
+
+            <Input
+              label="Email *"
+              type="email"
+              value={form.email}
+              onChange={(value) => setForm((prev) => ({ ...prev, email: value }))}
+              required
               compact
             />
 
             <label className="block">
               <span className="mb-0.5 block text-xs font-medium text-slate-200">
-                Ưu tiên của bạn *
+                Bạn muốn *
               </span>
               <select
                 value={form.goal}
@@ -224,7 +258,7 @@ export function HeroWithLeadForm() {
                 }
                 rows={2}
                 className="mt-2 w-full rounded-md border border-white/10 bg-black/30 px-2 py-1.5 text-xs text-slate-50 placeholder:text-slate-500 outline-none focus:ring-1 focus:ring-emerald-400/50"
-                placeholder="VD: hay pop-up, kẹt NVZ…"
+                placeholder="Giờ rảnh, khu vực, mức độ đã chơi…"
               />
             </details>
 
@@ -237,7 +271,7 @@ export function HeroWithLeadForm() {
                 }
                 className="shrink-0"
               />
-              Đồng ý nhận email từ khóa học
+              Đồng ý nhận thông tin từ khóa học
             </label>
 
             <input
@@ -263,7 +297,7 @@ export function HeroWithLeadForm() {
               disabled={isSubmitting}
               className="w-full rounded-md bg-emerald-400 px-3 py-2.5 text-sm font-semibold text-slate-900 shadow-md transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
             >
-              {isSubmitting ? "Đang gửi…" : "Nhận quà & lộ trình"}
+              {isSubmitting ? "Đang gửi…" : "Gửi đăng ký"}
             </button>
           </div>
         </form>

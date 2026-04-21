@@ -27,7 +27,7 @@ export function ZaloUpdateForm() {
         return;
       }
       setSuccess(
-        "Xong rồi — mình đã ghi nhận Zalo. Tài liệu sẽ tới tay bạn sớm thôi.",
+        "Đã ghi nhận Zalo — đội ngũ sẽ liên hệ và gửi tài liệu theo email bạn cung cấp.",
       );
       setEmail("");
       setZalo("");

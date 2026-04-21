@@ -11,7 +11,7 @@ const rateStore = new Map<string, RateEntry>();
 type LeadInput = {
   fullName: string;
   email: string;
-  phone?: string;
+  phone: string;
   goal: string;
   note?: string;
   pageUrl?: string;
@@ -55,6 +55,15 @@ function isEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+/** SĐT VN: cho phép dấu cách, +84, tối thiểu 9 chữ số */
+function isVietnamesePhone(value: string) {
+  const digits = value.replace(/\D/g, "");
+  if (digits.startsWith("84") && digits.length >= 11) return true;
+  if (digits.startsWith("0") && digits.length >= 9 && digits.length <= 11)
+    return true;
+  return digits.length >= 9 && digits.length <= 11;
+}
+
 export function validateLeadInput(input: unknown):
   | { ok: true; data: LeadInput }
   | { ok: false; message: string } {
@@ -80,6 +89,12 @@ export function validateLeadInput(input: unknown):
   }
   if (!isEmail(email)) {
     return { ok: false, message: "Email không hợp lệ." };
+  }
+  if (!phone || !isVietnamesePhone(phone)) {
+    return {
+      ok: false,
+      message: "Vui lòng nhập số điện thoại hợp lệ (Zalo/SĐT).",
+    };
   }
   if (!goal) {
     return { ok: false, message: "Vui lòng chọn mục tiêu." };
@@ -134,7 +149,7 @@ export function buildLeadPayload(data: LeadInput, request: Request) {
     zalo: "",
     goal: data.goal,
     stage: "New",
-    source: "landing-coach-ready",
+    source: "pickleball30phut-landing",
     pageUrl: data.pageUrl || request.headers.get("origin") || "/",
     note: data.note ?? "",
     consent: "yes",
@@ -148,7 +163,7 @@ export function buildZaloPayload(data: ZaloInput) {
     email: data.email,
     zalo: data.zalo,
     stage: "New",
-    source: "landing-coach-ready",
+    source: "pickleball30phut-landing",
     pageUrl: "/thank-you",
   };
 }
