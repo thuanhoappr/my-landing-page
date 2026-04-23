@@ -12,29 +12,13 @@ import {
 
 type LeadFormData = {
   fullName: string;
-  email: string;
   phone: string;
+  experience: string;
+  obstacle: string;
   goal: string;
-  note: string;
   pageUrl: string;
-  consent: boolean;
   companyWebsite: string;
 };
-
-const GOAL_CHOICES: { value: string; label: string }[] = [
-  {
-    value: "Tập thử miễn phí (có vợt sẵn)",
-    label: "Tập thử miễn phí (có vợt)",
-  },
-  {
-    value: "Mua khóa học ưu đãi 99K",
-    label: "Mua khóa học ưu đãi 99K",
-  },
-  {
-    value: "Muốn xem giáo trình tập online trước khi quyết định",
-    label: "Xem giáo trình / tư vấn thêm",
-  },
-];
 
 export function HeroWithLeadForm() {
   const router = useRouter();
@@ -48,14 +32,14 @@ export function HeroWithLeadForm() {
 
   const [form, setForm] = useState<LeadFormData>({
     fullName: "",
-    email: "",
     phone: "",
-    goal: GOAL_CHOICES[0].value,
-    note: "",
+    experience: "Chưa",
+    obstacle: "",
+    goal: "Biết chơi cơ bản",
     pageUrl: "",
-    consent: true,
     companyWebsite: "",
   });
+  const [customGoal, setCustomGoal] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
@@ -75,11 +59,13 @@ export function HeroWithLeadForm() {
     setIsSubmitting(true);
 
     try {
+      const finalGoal = form.goal === "Khác" ? customGoal : form.goal;
       const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
+          goal: finalGoal,
           pageUrl:
             typeof window !== "undefined"
               ? window.location.href
@@ -198,7 +184,7 @@ export function HeroWithLeadForm() {
 
           <div className="mt-4 space-y-3">
             <Input
-              label="Tên / Nickname *"
+              label="1. Anh/Chị tên gì? *"
               value={form.fullName}
               onChange={(value) => setForm((prev) => ({ ...prev, fullName: value }))}
               required
@@ -206,7 +192,7 @@ export function HeroWithLeadForm() {
             />
 
             <Input
-              label="Điện thoại *"
+              label="2. SĐT/Zalo để mình gửi tài liệu & hỗ trợ nhanh: *"
               value={form.phone}
               onChange={(value) => setForm((prev) => ({ ...prev, phone: value }))}
               placeholder="VD: 0912345678"
@@ -214,18 +200,42 @@ export function HeroWithLeadForm() {
               compact
             />
 
-            <Input
-              label="Email *"
-              type="email"
-              value={form.email}
-              onChange={(value) => setForm((prev) => ({ ...prev, email: value }))}
-              required
-              compact
-            />
+            <label className="block">
+              <span className="mb-0.5 block text-xs font-medium text-slate-200">
+                3. Hiện tại Anh/Chị đã từng chơi pickleball chưa? *
+              </span>
+              <select
+                value={form.experience}
+                onChange={(event) =>
+                  setForm((prev) => ({ ...prev, experience: event.target.value }))
+                }
+                className="w-full rounded-md border border-white/15 bg-black/40 px-2.5 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
+                required
+              >
+                <option value="Chưa" className="bg-slate-900 text-slate-100">Chưa</option>
+                <option value="Chơi thử" className="bg-slate-900 text-slate-100">Chơi thử</option>
+                <option value="Đang chơi" className="bg-slate-900 text-slate-100">Đang chơi</option>
+              </select>
+            </label>
 
             <label className="block">
               <span className="mb-0.5 block text-xs font-medium text-slate-200">
-                Bạn muốn *
+                4. Điều khiến Anh/Chị chưa bắt đầu hoặc còn ngại ra sân là gì?
+              </span>
+              <textarea
+                value={form.obstacle}
+                onChange={(event) =>
+                  setForm((prev) => ({ ...prev, obstacle: event.target.value }))
+                }
+                rows={2}
+                className="w-full rounded-md border border-white/15 bg-black/40 px-2.5 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm placeholder:text-slate-500 focus:ring-2"
+                placeholder="Câu trả lời của bạn..."
+              />
+            </label>
+
+            <label className="block">
+              <span className="mb-0.5 block text-xs font-medium text-slate-200">
+                5. Anh/Chị mong muốn điều gì nhất khi học pickleball? *
               </span>
               <select
                 value={form.goal}
@@ -235,44 +245,22 @@ export function HeroWithLeadForm() {
                 className="w-full rounded-md border border-white/15 bg-black/40 px-2.5 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
                 required
               >
-                {GOAL_CHOICES.map(({ value, label }) => (
-                  <option
-                    key={value}
-                    value={value}
-                    className="bg-slate-900 text-slate-100"
-                  >
-                    {label}
-                  </option>
-                ))}
+                <option value="Biết chơi cơ bản" className="bg-slate-900 text-slate-100">Biết chơi cơ bản</option>
+                <option value="Rèn sức khỏe" className="bg-slate-900 text-slate-100">Rèn sức khỏe</option>
+                <option value="Tự tin ra sân" className="bg-slate-900 text-slate-100">Tự tin ra sân</option>
+                <option value="Khác" className="bg-slate-900 text-slate-100">Khác...</option>
               </select>
             </label>
-
-            <details className="rounded-md border border-white/10 bg-black/20 px-2 py-1.5 backdrop-blur-sm">
-              <summary className="cursor-pointer select-none text-xs font-medium text-slate-300 hover:text-slate-100">
-                Ghi chú (tuỳ chọn)
-              </summary>
-              <textarea
-                value={form.note}
-                onChange={(event) =>
-                  setForm((prev) => ({ ...prev, note: event.target.value }))
-                }
-                rows={2}
-                className="mt-2 w-full rounded-md border border-white/10 bg-black/30 px-2 py-1.5 text-xs text-slate-50 placeholder:text-slate-500 outline-none focus:ring-1 focus:ring-emerald-400/50"
-                placeholder="Giờ rảnh, khu vực, mức độ đã chơi…"
+            
+            {form.goal === "Khác" && (
+              <Input
+                label="Mong muốn khác của Anh/Chị là gì? *"
+                value={customGoal}
+                onChange={setCustomGoal}
+                required
+                compact
               />
-            </details>
-
-            <label className="flex items-center gap-2 text-xs text-slate-200">
-              <input
-                type="checkbox"
-                checked={form.consent}
-                onChange={(event) =>
-                  setForm((prev) => ({ ...prev, consent: event.target.checked }))
-                }
-                className="shrink-0"
-              />
-              Đồng ý nhận thông tin từ khóa học
-            </label>
+            )}
 
             <input
               type="text"

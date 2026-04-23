@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export function ZaloUpdateForm() {
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [zalo, setZalo] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -19,7 +19,7 @@ export function ZaloUpdateForm() {
       const response = await fetch("/api/zalo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, zalo }),
+        body: JSON.stringify({ phone, zalo }),
       });
       const data = (await response.json()) as { ok: boolean; message?: string };
       if (!response.ok || !data.ok) {
@@ -27,9 +27,9 @@ export function ZaloUpdateForm() {
         return;
       }
       setSuccess(
-        "Đã ghi nhận Zalo — đội ngũ sẽ liên hệ và gửi tài liệu theo email bạn cung cấp.",
+        "Đã ghi nhận Zalo — đội ngũ sẽ liên hệ và gửi tài liệu theo SĐT/Zalo bạn cung cấp.",
       );
-      setEmail("");
+      setPhone("");
       setZalo("");
     } catch {
       setError("Lỗi kết nối. Kiểm tra mạng rồi thử lại giúp mình.");
@@ -42,12 +42,12 @@ export function ZaloUpdateForm() {
     <form onSubmit={handleSubmit} className="space-y-3">
       <label className="block">
         <span className="mb-1 block text-sm font-medium text-slate-100">
-          Email bạn vừa đăng ký *
+          Số điện thoại bạn vừa đăng ký *
         </span>
         <input
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          type="text"
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
           className="w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-slate-50 outline-none ring-emerald-400/50 backdrop-blur-sm focus:ring-2"
           required
         />

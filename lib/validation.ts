@@ -10,17 +10,16 @@ const rateStore = new Map<string, RateEntry>();
 
 type LeadInput = {
   fullName: string;
-  email: string;
   phone: string;
+  experience: string;
+  obstacle: string;
   goal: string;
-  note?: string;
   pageUrl?: string;
-  consent?: boolean;
   companyWebsite?: string;
 };
 
 type ZaloInput = {
-  email: string;
+  phone: string;
   zalo: string;
 };
 
@@ -73,12 +72,11 @@ export function validateLeadInput(input: unknown):
 
   const body = input as Record<string, unknown>;
   const fullName = String(body.fullName ?? "").trim();
-  const email = String(body.email ?? "").trim().toLowerCase();
   const phone = String(body.phone ?? "").trim();
+  const experience = String(body.experience ?? "").trim();
+  const obstacle = String(body.obstacle ?? "").trim();
   const goal = String(body.goal ?? "").trim();
-  const note = String(body.note ?? "").trim();
   const pageUrl = String(body.pageUrl ?? "").trim();
-  const consent = Boolean(body.consent ?? true);
   const companyWebsite = String(body.companyWebsite ?? "").trim();
 
   if (companyWebsite.length > 0) {
@@ -87,32 +85,28 @@ export function validateLeadInput(input: unknown):
   if (fullName.length < 2) {
     return { ok: false, message: "Vui lòng nhập tên hoặc nickname." };
   }
-  if (!isEmail(email)) {
-    return { ok: false, message: "Email không hợp lệ." };
-  }
   if (!phone || !isVietnamesePhone(phone)) {
     return {
       ok: false,
       message: "Vui lòng nhập số điện thoại hợp lệ (Zalo/SĐT).",
     };
   }
-  if (!goal) {
-    return { ok: false, message: "Vui lòng chọn mục tiêu." };
+  if (!experience) {
+    return { ok: false, message: "Vui lòng chọn kinh nghiệm của bạn." };
   }
-  if (!consent) {
-    return { ok: false, message: "Vui lòng đồng ý nhận thông tin từ khóa học." };
+  if (!goal) {
+    return { ok: false, message: "Vui lòng chọn mong muốn của bạn." };
   }
 
   return {
     ok: true,
     data: {
       fullName,
-      email,
       phone,
+      experience,
+      obstacle,
       goal,
-      note,
       pageUrl,
-      consent,
       companyWebsite,
     },
   };
@@ -126,17 +120,17 @@ export function validateZaloInput(input: unknown):
   }
 
   const body = input as Record<string, unknown>;
-  const email = String(body.email ?? "").trim().toLowerCase();
+  const phone = String(body.phone ?? "").trim();
   const zalo = String(body.zalo ?? "").trim();
 
-  if (!isEmail(email)) {
-    return { ok: false, message: "Email không hợp lệ." };
+  if (!phone || !isVietnamesePhone(phone)) {
+    return { ok: false, message: "Số điện thoại không hợp lệ." };
   }
   if (zalo.length < 2) {
     return { ok: false, message: "Vui lòng nhập Zalo." };
   }
 
-  return { ok: true, data: { email, zalo } };
+  return { ok: true, data: { phone, zalo } };
 }
 
 export function buildLeadPayload(data: LeadInput, request: Request) {
@@ -144,15 +138,13 @@ export function buildLeadPayload(data: LeadInput, request: Request) {
     event: "lead_create",
     submittedAt: new Date().toISOString(),
     fullName: data.fullName,
-    email: data.email,
-    phone: data.phone ?? "",
-    zalo: "",
+    phone: data.phone,
+    experience: data.experience,
+    obstacle: data.obstacle,
     goal: data.goal,
     stage: "New",
     source: "pickleball30phut-landing",
     pageUrl: data.pageUrl || request.headers.get("origin") || "/",
-    note: data.note ?? "",
-    consent: "yes",
   };
 }
 
@@ -160,7 +152,7 @@ export function buildZaloPayload(data: ZaloInput) {
   return {
     event: "zalo_update",
     submittedAt: new Date().toISOString(),
-    email: data.email,
+    phone: data.phone,
     zalo: data.zalo,
     stage: "New",
     source: "pickleball30phut-landing",
